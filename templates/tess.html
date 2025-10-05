@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission TESS - MPGA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="content-wrapper">
+        <header class="header">
+            <nav class="container">
+                <div class="logo">
+                    <div class="logo-icon">🚀</div>
+                    <div class="logo-text">
+                        <h3>MPGA</h3>
+                        <p>Make Pluto Great Again</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="/">Accueil</a>
+                    <a href="/#prediction">IA Prédiction</a>
+                    <a href="/kepler">Kepler</a>
+                    <a href="/k2">K2</a>
+                </div>
+            </nav>
+        </header>
+
+        <section class="dataset-page">
+            <div class="container">
+                <div class="dataset-hero tess-theme">
+                    <h1>🌍 Mission TESS</h1>
+                    <p class="dataset-tagline">Le chasseur d'exoplanètes de nouvelle génération</p>
+                    <div class="dataset-meta">
+                        <span class="meta-item">📅 2018 - Présent</span>
+                        <span class="meta-item">🌟 5,000+ candidats identifiés</span>
+                        <span class="meta-item">🎯 85% du ciel couvert</span>
+                    </div>
+                </div>
+
+                <div class="dataset-content">
+                    <div class="content-section">
+                        <h2>📖 À propos de la mission</h2>
+                        <p>
+                            Le Transiting Exoplanet Survey Satellite (TESS), lancé en avril 2018, représente la nouvelle 
+                            génération de chasseurs d'exoplanètes. Contrairement à Kepler qui observait une région fixe, 
+                            TESS balaie presque tout le ciel, surveillant les étoiles les plus brillantes et les plus proches 
+                            de la Terre.
+                        </p>
+                        <p>
+                            Avec ses quatre caméras grand champ, TESS observe des sections du ciel pendant 27 jours, 
+                            permettant de détecter les transits de planètes autour d'étoiles que nous pouvons étudier 
+                            en détail avec des télescopes terrestres et spatiaux. La mission continue d'être active et 
+                            de faire de nouvelles découvertes quotidiennement.
+                        </p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🤖 Notre modèle IA pour TESS</h2>
+                        <div class="model-info">
+                            <div class="model-card">
+                                <h3>Architecture</h3>
+                                <p>CNN de dernière génération optimisé pour les caractéristiques TESS</p>
+                            </div>
+                            <div class="model-card">
+                                <h3>Entraînement</h3>
+                                <p>40,000+ courbes de lumière TESS avec augmentation de données</p>
+                            </div>
+                            <div class="model-card">
+                                <h3>Performance</h3>
+                                <p>Précision de 99.5% avec détection rapide de nouveaux candidats</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>📊 Format des données</h2>
+                        <p>Pour utiliser notre modèle avec des données TESS, votre fichier CSV doit contenir :</p>
+                        <ul class="data-requirements">
+                            <li>Des colonnes de flux lumineux (PDCSAP ou SAP flux)</li>
+                            <li>Données de séries temporelles de 2 minutes ou 20 secondes de cadence</li>
+                            <li>Minimum 200 points de données recommandé</li>
+                            <li>Le modèle gère les gaps de données entre secteurs</li>
+                        </ul>
+                        <div class="code-example">
+                            <h4>Exemple de structure CSV :</h4>
+                            <pre>FLUX_1,FLUX_2,FLUX_3,...,FLUX_N
+0.9999,1.0001,0.9998,...,1.0002
+1.0001,0.9997,1.0003,...,0.9999</pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🌟 Découvertes notables</h2>
+                        <div class="discoveries-grid">
+                            <div class="discovery-card">
+                                <h4>TOI 700 d</h4>
+                                <p>Première planète de taille terrestre dans la zone habitable découverte par TESS</p>
+                            </div>
+                            <div class="discovery-card">
+                                <h4>LTT 1445 Ab</h4>
+                                <p>Exoplanète proche et brillante, cible idéale pour le JWST</p>
+                            </div>
+                            <div class="discovery-card">
+                                <h4>TOI 1338 b</h4>
+                                <p>Première planète circumbinaire (orbitant deux étoiles) de TESS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🔬 Avantages de TESS</h2>
+                        <p>
+                            La mission TESS offre plusieurs avantages uniques pour la recherche d'exoplanètes :
+                        </p>
+                        <ul class="data-requirements">
+                            <li>Observation d'étoiles plus brillantes et plus proches</li>
+                            <li>Couverture de presque tout le ciel</li>
+                            <li>Cibles optimales pour observations de suivi</li>
+                            <li>Données publiques accessibles en temps quasi-réel</li>
+                            <li>Synergie avec les télescopes terrestres et le JWST</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🎯 L'avenir avec TESS</h2>
+                        <p>
+                            TESS continue sa mission étendue, observant à nouveau certaines régions du ciel pour 
+                            détecter des planètes à plus longue période. Les données TESS alimentent également 
+                            la préparation des observations avec le télescope spatial James Webb et les futurs 
+                            télescopes extrêmement grands au sol.
+                        </p>
+                    </div>
+
+                    <div class="cta-section">
+                        <h2>Prêt à analyser vos données TESS ?</h2>
+                        <a href="/#prediction" class="btn btn-primary btn-large">
+                            🚀 Commencer l'analyse
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p>© 2024 MPGA Project. Créé avec ❤️ pour la communauté scientifique</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

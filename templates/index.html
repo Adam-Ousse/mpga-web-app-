@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPGA - Make Pluto Great Again</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Animated Space Background -->
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <div class="logo">
+                    <div class="logo-icon">🚀</div>
+                    <div class="logo-text">
+                        <h3>MPGA</h3>
+                        <p>Make Pluto Great Again</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="#about">À propos</a>
+                    <a href="#prediction">IA Prédiction</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#datasets">Datasets</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <div class="badge">
+                            <span class="zap-icon">⚡</span>
+                            <span>Propulsé par l'IA • Open Source</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Make Pluto<br>
+                            Great Again
+                        </h1>
+                        <p class="hero-description">
+                            Découvrez des exoplanètes avec notre modèle d'IA de pointe. 
+                            Analysez les données de Kepler, K2 et TESS pour détecter de nouveaux mondes.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="scrollToSection('prediction')">
+                                🎯 Commencer l'analyse
+                            </button>
+                            <a href="https://github.com" target="_blank" class="btn btn-outline">
+                                <span>📚 Documentation</span>
+                            </a>
+                        </div>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">8000+</span>
+                                <span class="stat-label">Exoplanètes détectées</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">99%</span>
+                                <span class="stat-label">Précision du modèle</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Missions spatiales</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <img src="{{ url_for('static', filename='images/space.png') }}" alt="Space" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">À propos du projet</h2>
+                    <p class="section-description">
+                        MPGA utilise l'intelligence artificielle pour démocratiser la découverte d'exoplanètes
+                    </p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔬</div>
+                        <h3>Analyse IA Avancée</h3>
+                        <p>Algorithmes de deep learning pour détecter les signatures planétaires dans les courbes de lumière</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛰️</div>
+                        <h3>3 Missions Spatiales</h3>
+                        <p>Support des données Kepler, K2 et TESS pour une couverture complète du ciel</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Résultats Instantanés</h3>
+                        <p>Analyse rapide de vos données avec probabilités de détection en temps réel</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prediction Section -->
+        <section id="prediction" class="prediction-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Analyse IA d'Exoplanètes</h2>
+                    <p class="section-description">
+                        Téléchargez vos données CSV et laissez notre IA détecter les exoplanètes
+                    </p>
+                </div>
+
+                <!-- Dataset Selection -->
+                <div class="dataset-selector">
+                    <h3>Choisissez votre mission spatiale</h3>
+                    <div class="dataset-cards">
+                        <div class="dataset-card" data-dataset="kepler" onclick="selectDataset('kepler')">
+                            <div class="dataset-header">
+                                <h4>Kepler</h4>
+                                <span class="dataset-badge kepler">2009-2018</span>
+                            </div>
+                            <p>Mission historique</p>
+                            <div class="dataset-stat">2600+ exoplanètes confirmées</div>
+                            <a href="/kepler" class="dataset-link" onclick="event.stopPropagation();">En savoir plus →</a>
+                        </div>
+                        <div class="dataset-card" data-dataset="k2" onclick="selectDataset('k2')">
+                            <div class="dataset-header">
+                                <h4>K2</h4>
+                                <span class="dataset-badge k2">2014-2018</span>
+                            </div>
+                            <p>Extension de Kepler</p>
+                            <div class="dataset-stat">500+ exoplanètes découvertes</div>
+                            <a href="/k2" class="dataset-link" onclick="event.stopPropagation();">En savoir plus →</a>
+                        </div>
+                        <div class="dataset-card" data-dataset="tess" onclick="selectDataset('tess')">
+                            <div class="dataset-header">
+                                <h4>TESS</h4>
+                                <span class="dataset-badge tess">2018-présent</span>
+                            </div>
+                            <p>Mission actuelle</p>
+                            <div class="dataset-stat">5000+ candidats identifiés</div>
+                            <a href="/tess" class="dataset-link" onclick="event.stopPropagation();">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Upload -->
+                <div class="upload-section" id="uploadSection" style="display: none;">
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="fileInput" accept=".csv" style="display: none;">
+                        <div class="upload-icon">📤</div>
+                        <h3>Glissez-déposez votre fichier CSV</h3>
+                        <p>ou cliquez pour sélectionner</p>
+                        <button class="btn btn-outline" onclick="document.getElementById('fileInput').click()">
+                            Parcourir les fichiers
+                        </button>
+                    </div>
+                    
+                    <!-- File List -->
+                    <div id="fileList" class="file-list"></div>
+
+                    <!-- Process Button -->
+                    <div id="processButton" style="display: none;">
+                        <button class="btn btn-primary btn-large" onclick="processFile()">
+                            🚀 Analyser avec l'IA
+                        </button>
+                    </div>
+
+                    <!-- Progress -->
+                    <div id="progressSection" class="progress-section" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <p id="progressText">Analyse en cours...</p>
+                    </div>
+
+                    <!-- Results -->
+                    <div id="resultsSection" class="results-section" style="display: none;">
+                        <!-- Results will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Datasets Info Section -->
+        <section id="datasets" class="datasets-info-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nos Sources de Données</h2>
+                    <p class="section-description">
+                        Explorez les trois missions spatiales qui alimentent notre IA
+                    </p>
+                </div>
+                <div class="datasets-grid">
+                    <a href="/kepler" class="dataset-info-card">
+                        <div class="dataset-info-icon kepler">K</div>
+                        <h3>Mission Kepler</h3>
+                        <p>La mission pionnière qui a révolutionné notre compréhension des exoplanètes</p>
+                        <span class="learn-more">En savoir plus →</span>
+                    </a>
+                    <a href="/k2" class="dataset-info-card">
+                        <div class="dataset-info-icon k2">K2</div>
+                        <h3>Mission K2</h3>
+                        <p>La seconde vie de Kepler avec une approche innovante d'observation</p>
+                        <span class="learn-more">En savoir plus →</span>
+                    </a>
+                    <a href="/tess" class="dataset-info-card">
+                        <div class="dataset-info-icon tess">T</div>
+                        <h3>Mission TESS</h3>
+                        <p>La mission actuelle qui balaye tout le ciel à la recherche de nouveaux mondes</p>
+                        <span class="learn-more">En savoir plus →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contactez-nous</h2>
+                    <p class="section-description">
+                        Une question ? Une suggestion ? Nous serions ravis d'échanger avec vous
+                    </p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@mpga-project.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💬</span>
+                            <div>
+                                <h4>GitHub</h4>
+                                <p>github.com/mpga-project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="logo">
+                            <div class="logo-icon">🚀</div>
+                            <div class="logo-text">
+                                <h3>MPGA</h3>
+                                <p>Make Pluto Great Again</p>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Projet open-source utilisant l'IA pour démocratiser la découverte d'exoplanètes 
+                            à partir des données de Kepler, K2 et TESS.
+                        </p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <a href="#about">À propos</a>
+                        <a href="#prediction">IA Prédiction</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#datasets">Datasets</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Ressources</h4>
+                        <a href="https://github.com" target="_blank">GitHub</a>
+                        <a href="/kepler">Kepler</a>
+                        <a href="/k2">K2</a>
+                        <a href="/tess">TESS</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2024 MPGA Project. Créé avec ❤️ pour la communauté scientifique</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

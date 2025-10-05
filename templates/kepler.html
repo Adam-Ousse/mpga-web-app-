@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Kepler - MPGA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="content-wrapper">
+        <header class="header">
+            <nav class="container">
+                <div class="logo">
+                    <div class="logo-icon">🚀</div>
+                    <div class="logo-text">
+                        <h3>MPGA</h3>
+                        <p>Make Pluto Great Again</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="/">Accueil</a>
+                    <a href="/#prediction">IA Prédiction</a>
+                    <a href="/k2">K2</a>
+                    <a href="/tess">TESS</a>
+                </div>
+            </nav>
+        </header>
+
+        <section class="dataset-page">
+            <div class="container">
+                <div class="dataset-hero kepler-theme">
+                    <h1>🔭 Mission Kepler</h1>
+                    <p class="dataset-tagline">La mission pionnière de la chasse aux exoplanètes</p>
+                    <div class="dataset-meta">
+                        <span class="meta-item">📅 2009 - 2018</span>
+                        <span class="meta-item">🌟 2,600+ exoplanètes confirmées</span>
+                        <span class="meta-item">🎯 150,000 étoiles observées</span>
+                    </div>
+                </div>
+
+                <div class="dataset-content">
+                    <div class="content-section">
+                        <h2>📖 À propos de la mission</h2>
+                        <p>
+                            Lancé en mars 2009, le télescope spatial Kepler a révolutionné notre compréhension des exoplanètes. 
+                            Pendant près d'une décennie, il a observé une région fixe du ciel, surveillant continuellement 
+                            la luminosité de plus de 150,000 étoiles.
+                        </p>
+                        <p>
+                            La mission a utilisé la méthode du transit photométrique : lorsqu'une planète passe devant son étoile 
+                            (vue depuis la Terre), elle provoque une légère diminution de la luminosité de l'étoile. 
+                            C'est cette signature que notre modèle d'IA est entraîné à détecter.
+                        </p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🤖 Notre modèle IA pour Kepler</h2>
+                        <div class="model-info">
+                            <div class="model-card">
+                                <h3>Architecture</h3>
+                                <p>Réseau de neurones convolutionnel (CNN) optimisé pour l'analyse de séries temporelles</p>
+                            </div>
+                            <div class="model-card">
+                                <h3>Entraînement</h3>
+                                <p>Plus de 50,000 courbes de lumière étiquetées de la mission Kepler</p>
+                            </div>
+                            <div class="model-card">
+                                <h3>Performance</h3>
+                                <p>Précision de 99.2% sur le jeu de test avec un taux de faux positifs < 1%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>📊 Format des données</h2>
+                        <p>Pour utiliser notre modèle avec des données Kepler, votre fichier CSV doit contenir :</p>
+                        <ul class="data-requirements">
+                            <li>Des colonnes de flux lumineux (flux normalisé)</li>
+                            <li>Données de séries temporelles continues</li>
+                            <li>Minimum 200 points de données recommandé</li>
+                            <li>Valeurs numériques (NaN acceptés et seront nettoyés automatiquement)</li>
+                        </ul>
+                        <div class="code-example">
+                            <h4>Exemple de structure CSV :</h4>
+                            <pre>FLUX_1,FLUX_2,FLUX_3,...,FLUX_N
+0.9998,1.0001,0.9997,...,1.0003
+0.9995,1.0002,0.9999,...,1.0001</pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🌟 Découvertes notables</h2>
+                        <div class="discoveries-grid">
+                            <div class="discovery-card">
+                                <h4>Kepler-186f</h4>
+                                <p>Première planète de taille terrestre découverte dans la zone habitable</p>
+                            </div>
+                            <div class="discovery-card">
+                                <h4>Kepler-452b</h4>
+                                <p>"Le cousin de la Terre" - planète similaire dans la zone habitable</p>
+                            </div>
+                            <div class="discovery-card">
+                                <h4>TRAPPIST-1</h4>
+                                <p>Système avec 7 planètes de taille terrestre, dont 3 dans la zone habitable</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cta-section">
+                        <h2>Prêt à analyser vos données Kepler ?</h2>
+                        <a href="/#prediction" class="btn btn-primary btn-large">
+                            🚀 Commencer l'analyse
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p>© 2024 MPGA Project. Créé avec ❤️ pour la communauté scientifique</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
