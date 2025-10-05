@@ -7,8 +7,8 @@ import json
 
 app = Flask(__name__)
 
-# Base URL for the prediction API
-BASE_URL = "https://flask-models-planet-detector-841768974079.europe-west1.run.app/"
+# Base URL for the prediction API (no trailing slash!)
+BASE_URL = "https://flask-models-planet-detector-841768974079.europe-west1.run.app"
 
 def clean_nans(obj):
     """Clean NaN and Inf values for JSON serialization"""
