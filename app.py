@@ -52,6 +52,11 @@ def tess():
     """Information page about TESS dataset and model"""
     return render_template('tess.html')
 
+@app.route('/workflow')
+def workflow():
+    """Workflow explanation page"""
+    return render_template('workflow.html')
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """Handle CSV upload and prediction request"""
@@ -93,9 +98,19 @@ def predict():
         
         # Check if request was successful
         if response.status_code != 200:
+            error_details = response.text
+            try:
+                error_json = response.json()
+                error_message = error_json.get('error', error_details)
+                error_hint = error_json.get('hint', '')
+            except:
+                error_message = error_details
+                error_hint = ''
+            
             return jsonify({
-                'error': f'Prediction API returned error: {response.status_code}',
-                'details': response.text
+                'error': f'API Error ({response.status_code}): {error_message}',
+                'hint': error_hint,
+                'details': error_details
             }), 500
         
         # Return prediction results

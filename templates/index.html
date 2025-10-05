@@ -1,10 +1,97 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MPGA - Make Pluto Great Again</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+      .team-member:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+}
+
+/* Secret Character Creeping In */
+.secret-character {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    cursor: pointer;
+    animation: creepIn 1.5s ease-out forwards;
+}
+
+.secret-character img {
+    width: 80px;
+    height: auto;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.secret-character:hover img {
+    transform: rotate(-45deg) scale(1.1);
+}
+
+@keyframes creepIn {
+    from {
+        transform: translate(200px, 200px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+/* Natural, non-robotic Canva-like wiggle */
+@keyframes organicWiggle {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    15% {
+        transform: rotate(5deg) translate(6px, -4px);
+    }
+    30% {
+        transform: rotate(-4deg) translate(-5px, 5px);
+    }
+    45% {
+        transform: rotate(6deg) translate(7px, -3px);
+    }
+    60% {
+        transform: rotate(-5deg) translate(-6px, 6px);
+    }
+    75% {
+        transform: rotate(4deg) translate(5px, -5px);
+    }
+    90% {
+        transform: rotate(-3deg) translate(-4px, 4px);
+    }
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
+
+.hero-image {
+    animation: organicWiggle 3s ease-in-out infinite;
+    transform-origin: center center;
+    display: inline-block;
+    will-change: transform;
+}
+
+/* Add subtle variation so multiple elements feel "randomized" */
+.hero-image:nth-child(2n) {
+    animation-duration: 3.2s;
+    animation-delay: 0.2s;
+}
+.hero-image:nth-child(3n) {
+    animation-duration: 2.8s;
+    animation-delay: 0.5s;
+}
+
+    </style>
 </head>
 <body>
     <!-- Animated Space Background -->
@@ -27,10 +114,16 @@
                     </div>
                 </div>
                 <div class="nav-links">
-                    <a href="#about">À propos</a>
-                    <a href="#prediction">IA Prédiction</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#datasets">Datasets</a>
+                    <a href="#about" style="font-weight: 700;">About</a>
+                    <a href="#prediction" style="font-weight: 700;">AI Prediction</a>
+                    <a href="/workflow" style="font-weight: 700;">Workflow</a>
+                    <a href="#datasets" style="font-weight: 700;">Datasets</a>
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App" style="font-weight: 700;">
+                        <span>🌐</span> GitHub Webapp
+                    </a>
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API" style="font-weight: 700;">
+                        <span>🤖</span> GitHub Models
+                    </a>
                 </div>
             </nav>
         </header>
@@ -42,36 +135,36 @@
                     <div class="hero-left">
                         <div class="badge">
                             <span class="zap-icon">⚡</span>
-                            <span>Propulsé par l'IA • Open Source</span>
+                            <span>Open Source</span>
                         </div>
                         <h1 class="hero-title">
                             Make Pluto<br>
                             Great Again
                         </h1>
                         <p class="hero-description">
-                            Découvrez des exoplanètes avec notre modèle d'IA de pointe. 
-                            Analysez les données de Kepler, K2 et TESS pour détecter de nouveaux mondes.
+                            Discover exoplanets with our state-of-the-art AI model. 
+                            Analyze Kepler, K2 and TESS data to detect new worlds.
                         </p>
                         <div class="hero-buttons">
                             <button class="btn btn-primary" onclick="scrollToSection('prediction')">
-                                🎯 Commencer l'analyse
+                                Start Exoplanet Analysis
                             </button>
-                            <a href="https://github.com" target="_blank" class="btn btn-outline">
-                                <span>📚 Documentation</span>
+                            <a href="/workflow"  class="btn btn-outline">
+                                <span>Workflow</span>
                             </a>
                         </div>
                         <div class="stats">
                             <div class="stat-item">
-                                <span class="stat-number">8000+</span>
-                                <span class="stat-label">Exoplanètes détectées</span>
+                                <span class="stat-number">Thousands</span>
+                                <span class="stat-label">Of Detected Exoplanets</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">99%</span>
-                                <span class="stat-label">Précision du modèle</span>
+                                <span class="stat-number">94.3%</span>
+                                <span class="stat-label">Average Accuracy</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">3</span>
-                                <span class="stat-label">Missions spatiales</span>
+                                <span class="stat-label">Space Missions</span>
                             </div>
                         </div>
                     </div>
@@ -86,26 +179,65 @@
         <section id="about" class="about-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">À propos du projet</h2>
+                    <h2 class="section-title">About the Project</h2>
                     <p class="section-description">
-                        MPGA utilise l'intelligence artificielle pour démocratiser la découverte d'exoplanètes
+                        MPGA uses artificial intelligence to democratize exoplanet discovery
                     </p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">🔬</div>
-                        <h3>Analyse IA Avancée</h3>
-                        <p>Algorithmes de deep learning pour détecter les signatures planétaires dans les courbes de lumière</p>
+                        <h3>Advanced AI Analysis</h3>
+                        <p>Deep learning algorithms to detect planetary signatures in light curves</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🛰️</div>
-                        <h3>3 Missions Spatiales</h3>
-                        <p>Support des données Kepler, K2 et TESS pour une couverture complète du ciel</p>
+                        <h3>3 Space Missions</h3>
+                        <p>Support for Kepler, K2 and TESS data for complete sky coverage</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📊</div>
-                        <h3>Résultats Instantanés</h3>
-                        <p>Analyse rapide de vos données avec probabilités de détection en temps réel</p>
+                        <h3>Instant Results</h3>
+                        <p>Fast analysis of your data with real-time detection probabilities</p>
+                    </div>
+                </div>
+                <div class="team-section">
+                    <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary);">👥 Team Members</h3>
+                    <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+                        <a href="https://www.linkedin.com/in/adam-gassam" target="_blank" class="team-member" style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; transition: all 0.3s ease; display: block; color: inherit;">
+                            <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color); margin: 0;">Adam Gassam</p>
+                            <span style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; display: block;">🔗 LinkedIn</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bedis-baccar" target="_blank" class="team-member" style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; transition: all 0.3s ease; display: block; color: inherit;">
+                            <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color); margin: 0;">Bedis Baccar</p>
+                            <span style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; display: block;">🔗 LinkedIn</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohamed-amine-arous" target="_blank" class="team-member" style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; transition: all 0.3s ease; display: block; color: inherit;">
+                            <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color); margin: 0;">Mohamed Amine Arous</p>
+                            <span style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; display: block;">🔗 LinkedIn</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohamed-neji-ghnimi" target="_blank" class="team-member" style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; transition: all 0.3s ease; display: block; color: inherit;">
+                            <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color); margin: 0;">Mohamed Neji Ghnimi</p>
+                            <span style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; display: block;">🔗 LinkedIn</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yasmine-dhouib" target="_blank" class="team-member" style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; transition: all 0.3s ease; display: block; color: inherit;">
+                            <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color); margin: 0;">Yasmine Dhouib</p>
+                            <span style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; display: block;">🔗 LinkedIn</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yassine-zanned" target="_blank" class="team-member" style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; transition: all 0.3s ease; display: block; color: inherit;">
+                            <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color); margin: 0;">Yassine Zanned</p>
+                            <span style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; display: block;">🔗 LinkedIn</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Workflow Button -->
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">
+                            Want to dive deeper? Here's a comprehensive analysis of our workflow and methodology
+                        </p>
+                        <a href="/workflow" class="btn btn-primary btn-large" style="display: inline-block; text-decoration: none;">
+                            🔬 Explore Our Workflow
+                        </a>
                     </div>
                 </div>
             </div>
@@ -115,42 +247,42 @@
         <section id="prediction" class="prediction-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Analyse IA d'Exoplanètes</h2>
+                    <h2 class="section-title">Exoplanet AI Analysis</h2>
                     <p class="section-description">
-                        Téléchargez vos données CSV et laissez notre IA détecter les exoplanètes
+                        Upload your CSV data and let our AI detect exoplanets
                     </p>
                 </div>
 
                 <!-- Dataset Selection -->
                 <div class="dataset-selector">
-                    <h3>Choisissez votre mission spatiale</h3>
+                    <h3>Choose your space mission</h3>
                     <div class="dataset-cards">
                         <div class="dataset-card" data-dataset="kepler" onclick="selectDataset('kepler')">
                             <div class="dataset-header">
                                 <h4>Kepler</h4>
                                 <span class="dataset-badge kepler">2009-2018</span>
                             </div>
-                            <p>Mission historique</p>
-                            <div class="dataset-stat">2600+ exoplanètes confirmées</div>
-                            <a href="/kepler" class="dataset-link" onclick="event.stopPropagation();">En savoir plus →</a>
+                            <p>Historic mission</p>
+                            <div class="dataset-stat">2600+ confirmed exoplanets</div>
+                            <a href="/kepler" class="dataset-link" onclick="event.stopPropagation();">Learn more →</a>
                         </div>
                         <div class="dataset-card" data-dataset="k2" onclick="selectDataset('k2')">
                             <div class="dataset-header">
                                 <h4>K2</h4>
                                 <span class="dataset-badge k2">2014-2018</span>
                             </div>
-                            <p>Extension de Kepler</p>
-                            <div class="dataset-stat">500+ exoplanètes découvertes</div>
-                            <a href="/k2" class="dataset-link" onclick="event.stopPropagation();">En savoir plus →</a>
+                            <p>Kepler extension</p>
+                            <div class="dataset-stat">500+ discovered exoplanets</div>
+                            <a href="/k2" class="dataset-link" onclick="event.stopPropagation();">Learn more →</a>
                         </div>
                         <div class="dataset-card" data-dataset="tess" onclick="selectDataset('tess')">
                             <div class="dataset-header">
                                 <h4>TESS</h4>
-                                <span class="dataset-badge tess">2018-présent</span>
+                                <span class="dataset-badge tess">2018-present</span>
                             </div>
-                            <p>Mission actuelle</p>
-                            <div class="dataset-stat">5000+ candidats identifiés</div>
-                            <a href="/tess" class="dataset-link" onclick="event.stopPropagation();">En savoir plus →</a>
+                            <p>Current mission</p>
+                            <div class="dataset-stat">5000+ identified candidates</div>
+                            <a href="/tess" class="dataset-link" onclick="event.stopPropagation();">Learn more →</a>
                         </div>
                     </div>
                 </div>
@@ -160,10 +292,10 @@
                     <div class="upload-area" id="uploadArea">
                         <input type="file" id="fileInput" accept=".csv" style="display: none;">
                         <div class="upload-icon">📤</div>
-                        <h3>Glissez-déposez votre fichier CSV</h3>
-                        <p>ou cliquez pour sélectionner</p>
+                        <h3>Drag and drop your CSV file</h3>
+                        <p>or click to select</p>
                         <button class="btn btn-outline" onclick="document.getElementById('fileInput').click()">
-                            Parcourir les fichiers
+                            Browse files
                         </button>
                     </div>
                     
@@ -173,7 +305,7 @@
                     <!-- Process Button -->
                     <div id="processButton" style="display: none;">
                         <button class="btn btn-primary btn-large" onclick="processFile()">
-                            🚀 Analyser avec l'IA
+                            🚀 Analyze with AI
                         </button>
                     </div>
 
@@ -182,7 +314,7 @@
                         <div class="progress-bar">
                             <div class="progress-fill" id="progressFill"></div>
                         </div>
-                        <p id="progressText">Analyse en cours...</p>
+                        <p id="progressText">Analysis in progress...</p>
                     </div>
 
                     <!-- Results -->
@@ -197,60 +329,30 @@
         <section id="datasets" class="datasets-info-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Nos Sources de Données</h2>
+                    <h2 class="section-title">Our Data Sources</h2>
                     <p class="section-description">
-                        Explorez les trois missions spatiales qui alimentent notre IA
+                        Explore the three space missions that power our AI
                     </p>
                 </div>
                 <div class="datasets-grid">
                     <a href="/kepler" class="dataset-info-card">
                         <div class="dataset-info-icon kepler">K</div>
-                        <h3>Mission Kepler</h3>
-                        <p>La mission pionnière qui a révolutionné notre compréhension des exoplanètes</p>
-                        <span class="learn-more">En savoir plus →</span>
+                        <h3>Kepler Mission</h3>
+                        <p>The pioneering mission that revolutionized our understanding of exoplanets</p>
+                        <span class="learn-more">Learn more →</span>
                     </a>
                     <a href="/k2" class="dataset-info-card">
                         <div class="dataset-info-icon k2">K2</div>
-                        <h3>Mission K2</h3>
-                        <p>La seconde vie de Kepler avec une approche innovante d'observation</p>
-                        <span class="learn-more">En savoir plus →</span>
+                        <h3>K2 Mission</h3>
+                        <p>Kepler's second life with an innovative observation approach</p>
+                        <span class="learn-more">Learn more →</span>
                     </a>
                     <a href="/tess" class="dataset-info-card">
                         <div class="dataset-info-icon tess">T</div>
-                        <h3>Mission TESS</h3>
-                        <p>La mission actuelle qui balaye tout le ciel à la recherche de nouveaux mondes</p>
-                        <span class="learn-more">En savoir plus →</span>
+                        <h3>TESS Mission</h3>
+                        <p>The current mission scanning the entire sky for new worlds</p>
+                        <span class="learn-more">Learn more →</span>
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Contactez-nous</h2>
-                    <p class="section-description">
-                        Une question ? Une suggestion ? Nous serions ravis d'échanger avec vous
-                    </p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <div>
-                                <h4>Email</h4>
-                                <p>contact@mpga-project.org</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">💬</span>
-                            <div>
-                                <h4>GitHub</h4>
-                                <p>github.com/mpga-project</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -268,19 +370,19 @@
                             </div>
                         </div>
                         <p class="footer-description">
-                            Projet open-source utilisant l'IA pour démocratiser la découverte d'exoplanètes 
-                            à partir des données de Kepler, K2 et TESS.
+                            Open-source project using AI to democratize exoplanet discovery 
+                            from Kepler, K2 and TESS data.
                         </p>
                     </div>
                     <div class="footer-section">
                         <h4>Navigation</h4>
-                        <a href="#about">À propos</a>
-                        <a href="#prediction">IA Prédiction</a>
-                        <a href="#contact">Contact</a>
+                        <a href="#about">About</a>
+                        <a href="#prediction">AI Prediction</a>
                         <a href="#datasets">Datasets</a>
+                        <a href="/workflow">Workflow</a>
                     </div>
                     <div class="footer-section">
-                        <h4>Ressources</h4>
+                        <h4>Resources</h4>
                         <a href="https://github.com" target="_blank">GitHub</a>
                         <a href="/kepler">Kepler</a>
                         <a href="/k2">K2</a>
@@ -288,12 +390,26 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2024 MPGA Project. Créé avec ❤️ pour la communauté scientifique</p>
+                    <p>© 2024 MPGA Project. Created with ❤️ for the scientific community</p>
                 </div>
             </div>
         </footer>
     </div>
 
+    <!-- Secret Character Creeping In -->
+    <a href="https://youtu.be/c69ywv7OdIk" target="_blank" class="secret-character" id="secretCharacter">
+        <img src="{{ url_for('static', filename='images/space.png') }}" alt="Secret Character">
+    </a>
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Show secret character after 2 seconds
+        setTimeout(() => {
+            const character = document.getElementById('secretCharacter');
+            if (character) {
+                character.style.display = 'block';
+            }
+        }, 2000);
+    </script>
 </body>
 </html>

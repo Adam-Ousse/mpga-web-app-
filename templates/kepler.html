@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Kepler - MPGA</title>
+    <title>Kepler Mission - MPGA</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
@@ -24,10 +24,17 @@
                     </div>
                 </div>
                 <div class="nav-links">
-                    <a href="/">Accueil</a>
-                    <a href="/#prediction">IA Prédiction</a>
+                    <a href="/">Home</a>
+                    <a href="/#prediction">AI Prediction</a>
+                    <a href="/workflow">Workflow</a>
                     <a href="/k2">K2</a>
                     <a href="/tess">TESS</a>
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App">
+                        <span>🌐</span> Webapp
+                    </a>
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API">
+                        <span>🤖</span> Models
+                    </a>
                 </div>
             </nav>
         </header>
@@ -35,59 +42,59 @@
         <section class="dataset-page">
             <div class="container">
                 <div class="dataset-hero kepler-theme">
-                    <h1>🔭 Mission Kepler</h1>
-                    <p class="dataset-tagline">La mission pionnière de la chasse aux exoplanètes</p>
+                    <h1>🔭 Kepler Mission</h1>
+                    <p class="dataset-tagline">The pioneering mission of exoplanet hunting</p>
                     <div class="dataset-meta">
                         <span class="meta-item">📅 2009 - 2018</span>
-                        <span class="meta-item">🌟 2,600+ exoplanètes confirmées</span>
-                        <span class="meta-item">🎯 150,000 étoiles observées</span>
+                        <span class="meta-item">🌟 2,600+ confirmed exoplanets</span>
+                        <span class="meta-item">🎯 150,000 observed stars</span>
                     </div>
                 </div>
 
                 <div class="dataset-content">
                     <div class="content-section">
-                        <h2>📖 À propos de la mission</h2>
+                        <h2>📖 About the Mission</h2>
                         <p>
-                            Lancé en mars 2009, le télescope spatial Kepler a révolutionné notre compréhension des exoplanètes. 
-                            Pendant près d'une décennie, il a observé une région fixe du ciel, surveillant continuellement 
-                            la luminosité de plus de 150,000 étoiles.
+                            Launched in March 2009, the Kepler Space Telescope revolutionized our understanding of exoplanets. 
+                            For nearly a decade, it observed a fixed region of the sky, continuously monitoring 
+                            the brightness of over 150,000 stars.
                         </p>
                         <p>
-                            La mission a utilisé la méthode du transit photométrique : lorsqu'une planète passe devant son étoile 
-                            (vue depuis la Terre), elle provoque une légère diminution de la luminosité de l'étoile. 
-                            C'est cette signature que notre modèle d'IA est entraîné à détecter.
+                            The mission used the photometric transit method: when a planet passes in front of its star 
+                            (as seen from Earth), it causes a slight decrease in the star's brightness. 
+                            This is the signature that our AI model is trained to detect.
                         </p>
                     </div>
 
                     <div class="content-section">
-                        <h2>🤖 Notre modèle IA pour Kepler</h2>
+                        <h2>🤖 Our AI Model for Kepler</h2>
                         <div class="model-info">
                             <div class="model-card">
                                 <h3>Architecture</h3>
-                                <p>Réseau de neurones convolutionnel (CNN) optimisé pour l'analyse de séries temporelles</p>
+                                <p>Logistic Regression optimized for time series analysis</p>
                             </div>
                             <div class="model-card">
-                                <h3>Entraînement</h3>
-                                <p>Plus de 50,000 courbes de lumière étiquetées de la mission Kepler</p>
+                                <h3>Training</h3>
+                                <p>Over 50,000 labeled light curves from the Kepler mission</p>
                             </div>
                             <div class="model-card">
                                 <h3>Performance</h3>
-                                <p>Précision de 99.2% sur le jeu de test avec un taux de faux positifs < 1%</p>
+                                <p>Accuracy of 98.42% on test set with false positive rate < 2%</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>📊 Format des données</h2>
-                        <p>Pour utiliser notre modèle avec des données Kepler, votre fichier CSV doit contenir :</p>
+                        <h2>📊 Data Format</h2>
+                        <p>To use our model with Kepler data, your CSV file must contain:</p>
                         <ul class="data-requirements">
-                            <li>Des colonnes de flux lumineux (flux normalisé)</li>
-                            <li>Données de séries temporelles continues</li>
-                            <li>Minimum 200 points de données recommandé</li>
-                            <li>Valeurs numériques (NaN acceptés et seront nettoyés automatiquement)</li>
+                            <li>Light flux columns (normalized flux)</li>
+                            <li>Continuous time series data</li>
+                            <li>Minimum 200 data points recommended</li>
+                            <li>Numerical values (NaN accepted and will be cleaned automatically)</li>
                         </ul>
                         <div class="code-example">
-                            <h4>Exemple de structure CSV :</h4>
+                            <h4>CSV structure example:</h4>
                             <pre>FLUX_1,FLUX_2,FLUX_3,...,FLUX_N
 0.9998,1.0001,0.9997,...,1.0003
 0.9995,1.0002,0.9999,...,1.0001</pre>
@@ -95,27 +102,27 @@
                     </div>
 
                     <div class="content-section">
-                        <h2>🌟 Découvertes notables</h2>
+                        <h2>🌟 Notable Discoveries</h2>
                         <div class="discoveries-grid">
                             <div class="discovery-card">
                                 <h4>Kepler-186f</h4>
-                                <p>Première planète de taille terrestre découverte dans la zone habitable</p>
+                                <p>First Earth-sized planet discovered in the habitable zone</p>
                             </div>
                             <div class="discovery-card">
                                 <h4>Kepler-452b</h4>
-                                <p>"Le cousin de la Terre" - planète similaire dans la zone habitable</p>
+                                <p>"Earth's cousin" - similar planet in the habitable zone</p>
                             </div>
                             <div class="discovery-card">
                                 <h4>TRAPPIST-1</h4>
-                                <p>Système avec 7 planètes de taille terrestre, dont 3 dans la zone habitable</p>
+                                <p>System with 7 Earth-sized planets, 3 in the habitable zone</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="cta-section">
-                        <h2>Prêt à analyser vos données Kepler ?</h2>
+                        <h2>Ready to analyze your Kepler data?</h2>
                         <a href="/#prediction" class="btn btn-primary btn-large">
-                            🚀 Commencer l'analyse
+                            🚀 Start Analysis
                         </a>
                     </div>
                 </div>
@@ -125,7 +132,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-bottom">
-                    <p>© 2024 MPGA Project. Créé avec ❤️ pour la communauté scientifique</p>
+                    <p>© 2024 MPGA Project. Created with ❤️ for the scientific community</p>
                 </div>
             </div>
         </footer>

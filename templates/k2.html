@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission K2 - MPGA</title>
+    <title>K2 Mission - MPGA</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
@@ -24,10 +24,17 @@
                     </div>
                 </div>
                 <div class="nav-links">
-                    <a href="/">Accueil</a>
-                    <a href="/#prediction">IA Prédiction</a>
+                    <a href="/">Home</a>
+                    <a href="/#prediction">AI Prediction</a>
+                    <a href="/workflow">Workflow</a>
                     <a href="/kepler">Kepler</a>
                     <a href="/tess">TESS</a>
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App">
+                        <span>🌐</span> Webapp
+                    </a>
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API">
+                        <span>🤖</span> Models
+                    </a>
                 </div>
             </nav>
         </header>
@@ -35,60 +42,60 @@
         <section class="dataset-page">
             <div class="container">
                 <div class="dataset-hero k2-theme">
-                    <h1>🛰️ Mission K2</h1>
-                    <p class="dataset-tagline">La seconde vie innovante de Kepler</p>
+                    <h1>🛰️ K2 Mission</h1>
+                    <p class="dataset-tagline">Kepler's innovative second life</p>
                     <div class="dataset-meta">
                         <span class="meta-item">📅 2014 - 2018</span>
-                        <span class="meta-item">🌟 500+ exoplanètes découvertes</span>
-                        <span class="meta-item">🎯 19 campagnes d'observation</span>
+                        <span class="meta-item">🌟 500+ discovered exoplanets</span>
+                        <span class="meta-item">🎯 19 observation campaigns</span>
                     </div>
                 </div>
 
                 <div class="dataset-content">
                     <div class="content-section">
-                        <h2>📖 À propos de la mission</h2>
+                        <h2>📖 About the Mission</h2>
                         <p>
-                            Après une défaillance mécanique en 2013, la mission Kepler a été réinventée en mission K2. 
-                            Plutôt que d'observer une seule région du ciel, K2 a utilisé la pression de radiation solaire 
-                            pour stabiliser le télescope, permettant des observations de différentes régions du ciel 
-                            pendant des campagnes de 80 jours.
+                            After a mechanical failure in 2013, the Kepler mission was reinvented as the K2 mission. 
+                            Rather than observing a single region of the sky, K2 used solar radiation pressure 
+                            to stabilize the telescope, allowing observations of different sky regions 
+                            during 80-day campaigns.
                         </p>
                         <p>
-                            Cette approche novatrice a permis d'observer une plus grande variété d'étoiles et de systèmes 
-                            planétaires, tout en continuant à utiliser la méthode du transit photométrique qui a fait 
-                            le succès de Kepler.
+                            This innovative approach allowed observation of a greater variety of stars and planetary 
+                            systems, while continuing to use the photometric transit method that made 
+                            Kepler successful.
                         </p>
                     </div>
 
                     <div class="content-section">
-                        <h2>🤖 Notre modèle IA pour K2</h2>
+                        <h2>🤖 Our AI Model for K2</h2>
                         <div class="model-info">
                             <div class="model-card">
                                 <h3>Architecture</h3>
-                                <p>CNN adapté pour les variations de pointage caractéristiques de K2</p>
+                                <p>Random Forest adapted for K2's characteristic pointing variations</p>
                             </div>
                             <div class="model-card">
-                                <h3>Entraînement</h3>
-                                <p>30,000+ courbes de lumière K2 avec prétraitement spécialisé</p>
+                                <h3>Training</h3>
+                                <p>30,000+ K2 light curves with specialized preprocessing</p>
                             </div>
                             <div class="model-card">
                                 <h3>Performance</h3>
-                                <p>Précision de 98.7% avec robustesse aux artefacts instrumentaux de K2</p>
+                                <p>Accuracy of 96.2% with robustness to K2 instrumental artifacts</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>📊 Format des données</h2>
-                        <p>Pour utiliser notre modèle avec des données K2, votre fichier CSV doit contenir :</p>
+                        <h2>📊 Data Format</h2>
+                        <p>To use our model with K2 data, your CSV file must contain:</p>
                         <ul class="data-requirements">
-                            <li>Des colonnes de flux lumineux (flux normalisé et corrigé)</li>
-                            <li>Données avec bruit instrumental K2 caractéristique</li>
-                            <li>Minimum 200 points de données recommandé</li>
-                            <li>Le modèle gère automatiquement les discontinuités de campagnes</li>
+                            <li>Light flux columns (normalized and corrected flux)</li>
+                            <li>Data with characteristic K2 instrumental noise</li>
+                            <li>Minimum 200 data points recommended</li>
+                            <li>The model automatically handles campaign discontinuities</li>
                         </ul>
                         <div class="code-example">
-                            <h4>Exemple de structure CSV :</h4>
+                            <h4>CSV structure example:</h4>
                             <pre>FLUX_1,FLUX_2,FLUX_3,...,FLUX_N
 1.0002,0.9998,1.0001,...,0.9997
 0.9999,1.0003,0.9995,...,1.0002</pre>
@@ -96,41 +103,41 @@
                     </div>
 
                     <div class="content-section">
-                        <h2>🌟 Découvertes notables</h2>
+                        <h2>🌟 Notable Discoveries</h2>
                         <div class="discoveries-grid">
                             <div class="discovery-card">
                                 <h4>K2-18b</h4>
-                                <p>Super-Terre dans la zone habitable avec vapeur d'eau détectée dans son atmosphère</p>
+                                <p>Super-Earth in the habitable zone with water vapor detected in its atmosphere</p>
                             </div>
                             <div class="discovery-card">
                                 <h4>K2-138</h4>
-                                <p>Système de 6 planètes en résonance orbitale découvert par des citoyens scientifiques</p>
+                                <p>System of 6 planets in orbital resonance discovered by citizen scientists</p>
                             </div>
                             <div class="discovery-card">
                                 <h4>K2-22b</h4>
-                                <p>Planète avec une queue de débris, comme une comète géante</p>
+                                <p>Planet with a debris tail, like a giant comet</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>🔬 Spécificités de K2</h2>
+                        <h2>🔬 K2 Specifics</h2>
                         <p>
-                            La mission K2 a introduit des défis uniques en raison de la stabilisation par pression solaire. 
-                            Notre modèle d'IA a été spécifiquement entraîné pour :
+                            The K2 mission introduced unique challenges due to solar pressure stabilization. 
+                            Our AI model has been specifically trained to:
                         </p>
                         <ul class="data-requirements">
-                            <li>Gérer les variations systématiques de pointage tous les 6 heures</li>
-                            <li>Distinguer les transits planétaires du bruit instrumental</li>
-                            <li>S'adapter aux différentes qualités de données entre campagnes</li>
-                            <li>Compenser les effets de thruster roll</li>
+                            <li>Handle systematic pointing variations every 6 hours</li>
+                            <li>Distinguish planetary transits from instrumental noise</li>
+                            <li>Adapt to different data qualities between campaigns</li>
+                            <li>Compensate for thruster roll effects</li>
                         </ul>
                     </div>
 
                     <div class="cta-section">
-                        <h2>Prêt à analyser vos données K2 ?</h2>
+                        <h2>Ready to analyze your K2 data?</h2>
                         <a href="/#prediction" class="btn btn-primary btn-large">
-                            🚀 Commencer l'analyse
+                            🚀 Start Analysis
                         </a>
                     </div>
                 </div>
@@ -140,7 +147,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-bottom">
-                    <p>© 2024 MPGA Project. Créé avec ❤️ pour la communauté scientifique</p>
+                    <p>© 2024 MPGA Project. Created with ❤️ for the scientific community</p>
                 </div>
             </div>
         </footer>

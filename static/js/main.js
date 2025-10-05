@@ -199,7 +199,19 @@ async function processFile() {
         
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.error || 'Erreur lors de la prédiction');
+            let errorMessage = errorData.error || 'Erreur lors de la prédiction';
+            
+            // Add hint if available
+            if (errorData.hint) {
+                errorMessage += '\n\n💡 ' + errorData.hint;
+            }
+            
+            // Add more context if it's a column-related error
+            if (errorMessage.includes('missing') || errorMessage.includes('required features')) {
+                errorMessage += '\n\n⚠️ Vérifiez que votre fichier CSV contient toutes les colonnes requises pour le dataset ' + selectedDataset.toUpperCase();
+            }
+            
+            throw new Error(errorMessage);
         }
         
         const result = await response.json();

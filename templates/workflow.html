@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow Explanation - MPGA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Animated Space Background -->
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <div class="logo">
+                    <div class="logo-icon">🚀</div>
+                    <div class="logo-text">
+                        <h3>MPGA</h3>
+                        <p>Make Pluto Great Again</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/#prediction">AI Prediction</a>
+                    <a href="/workflow">Workflow</a>
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App">
+                        <span>🌐</span> GitHub Webapp
+                    </a>
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API">
+                        <span>🤖</span> GitHub Models
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content workflow-page">
+            <div class="container">
+                <!-- Page Header -->
+                <section class="page-header">
+                    <h1 class="page-title">🔬 Workflow Explanation</h1>
+                    <p class="page-subtitle">Discover our comprehensive methodology for exoplanet analysis and prediction</p>
+                </section>
+
+            <!-- Table of Contents (Sommaire) -->
+            <section class="sommaire-section">
+                <h2 class="sommaire-title">📑 Sommaire</h2>
+                <div class="sommaire-grid">
+                    <a href="#architecture" class="sommaire-link">
+                        <span class="sommaire-icon">📊</span>
+                        <span class="sommaire-text">Project Architecture</span>
+                    </a>
+                    <a href="#overview" class="sommaire-link">
+                        <span class="sommaire-icon">🎯</span>
+                        <span class="sommaire-text">Project Overview</span>
+                    </a>
+                    <a href="#preprocessing" class="sommaire-link">
+                        <span class="sommaire-icon">🔧</span>
+                        <span class="sommaire-text">Feature Engineering</span>
+                    </a>
+                    <a href="#kepler" class="sommaire-link">
+                        <span class="sommaire-icon">🔭</span>
+                        <span class="sommaire-text">Kepler Dataset</span>
+                    </a>
+                    <a href="#k2" class="sommaire-link">
+                        <span class="sommaire-icon">🌟</span>
+                        <span class="sommaire-text">K2 Dataset</span>
+                    </a>
+                    <a href="#tess" class="sommaire-link">
+                        <span class="sommaire-icon">🛰️</span>
+                        <span class="sommaire-text">TESS Dataset</span>
+                    </a>
+                    <a href="#conclusion" class="sommaire-link">
+                        <span class="sommaire-icon">🎓</span>
+                        <span class="sommaire-text">Conclusion</span>
+                    </a>
+                    <a href="#github" class="sommaire-link">
+                        <span class="sommaire-icon">💻</span>
+                        <span class="sommaire-text">GitHub Repositories</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Project Diagram -->
+            <section id="architecture" class="workflow-section diagram-section">
+                <h2 class="section-title">📊 Project Architecture</h2>
+                <div class="diagram-container">
+                    <img src="{{ url_for('static', filename='images/entire_system_diagram.png') }}" 
+                         alt="MPGA Workflow Diagram" 
+                         class="workflow-diagram clickable-image"
+                         onclick="enlargeImage(this)">
+                </div>
+            </section>
+
+            <!-- Overview Section -->
+            <section id="overview" class="workflow-section overview-section">
+                <h2 class="section-title">🎯 Project Overview</h2>
+                <div class="content-card">
+                    <p class="workflow-text">
+                        The AI project follows a standard machine learning procedure. We begin with <strong>data collection</strong>, 
+                        utilizing the datasets provided in the challenge: <strong>Kepler</strong>, <strong>TESS</strong>, and <strong>K2</strong>. 
+                        Next, we proceed to <strong>analyzing all features</strong> based on their meaning, value intervals, and importance in prediction.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Feature Engineering Section -->
+            <section id="preprocessing" class="workflow-section feature-section">
+                <h2 class="section-title">🔧 Feature Engineering & Data Preprocessing</h2>
+                
+                <div class="content-card">
+                    <h3 class="subsection-title">Removed Features</h3>
+                    <div class="feature-info">
+                        <div class="info-block">
+                            <h4>❌ Limit Features</h4>
+                            <p>We removed all features connected to "limits" since these were highly sparse features, 
+                            either filled with zeros or null values.</p>
+                        </div>
+                        
+                        <div class="info-block">
+                            <h4>❌ Irrelevant Features</h4>
+                            <p>We removed features that were either irrelevant to exoplanet prediction (such as IDs and 
+                            discovery timestamps) or features that made the task unrealistically easy.</p>
+                        </div>
+                        
+                        <div class="info-block highlight-block">
+                            <h4>⚠️ Example: "sy_pnum" in K2</h4>
+                            <p>This feature represents the "number of identified planets" in the star's orbit. We consider 
+                            it illogical to use as a prediction base since, for a new solar system, this data would not be 
+                            known — which is precisely what NASA's system aims to predict.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card preprocessing-card">
+                    <h3 class="subsection-title">⚙️ Preprocessing Pipeline</h3>
+                    <p class="workflow-text">
+                        We created a <strong>scikit-learn pipeline</strong> that processes the dataset through the following steps:
+                    </p>
+                    <div class="pipeline-steps">
+                        <div class="pipeline-step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>Columns Filtering</h4>
+                                <p>Remove irrelevant and target-leaking features</p>
+                            </div>
+                        </div>
+                        <div class="pipeline-step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>Filling Missing Values</h4>
+                                <p>Impute missing data using appropriate strategies</p>
+                            </div>
+                        </div>
+                        <div class="pipeline-step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>Encoding Categorical Variables</h4>
+                                <p>Transform categorical features into numerical representations</p>
+                            </div>
+                        </div>
+                        <div class="pipeline-step">
+                            <span class="step-number">4</span>
+                            <div class="step-content">
+                                <h4>Standard Scaling Numerical Variables</h4>
+                                <p>Normalize numerical features for optimal model performance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kepler Dataset Section -->
+            <section id="kepler" class="workflow-section dataset-section kepler-section">
+                <h2 class="section-title">🔭 Kepler Dataset Analysis</h2>
+                
+                <div class="content-card">
+                    <h3 class="subsection-title">Dropped Columns</h3>
+                    <div class="code-block">
+                        <pre><code>cols_to_drop = [
+    "loc_rowid", "kepid", "kepoi_name", "kepler_name", 
+    "koi_time0bk", "koi_time0bk_err1", "koi_time0bk_err2", 
+    "koi_tce_plnt_num", "koi_tce_delivname", 
+    "ra", "dec",
+    "koi_pdisposition",  # Time-series-analysis cheating
+    "koi_score"          # Score of cheat
+]</code></pre>
+                    </div>
+                    <p class="workflow-text">All other features were retained for training.</p>
+                </div>
+
+                <div class="content-card results-card">
+                    <h3 class="subsection-title">🎯 Model Performance</h3>
+                    <p class="workflow-text">
+                        The results are <strong>astonishing</strong> with <strong>Logistic Regression</strong>, which was trained 
+                        using <strong>5-fold cross-validation</strong> and <strong>hyperparameter fine-tuning</strong>:
+                    </p>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">98.42%</div>
+                            <div class="metric-label">Accuracy</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">97.30%</div>
+                            <div class="metric-label">Precision</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">98.36%</div>
+                            <div class="metric-label">Recall</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">97.83%</div>
+                            <div class="metric-label">F1 Score</div>
+                        </div>
+                        <div class="metric-card highlight-metric">
+                            <div class="metric-value">99.58%</div>
+                            <div class="metric-label">ROC-AUC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card visualizations-card">
+                    <h3 class="subsection-title">Visualizations</h3>
+                    <div class="visualization-grid">
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/Kepler_models/roc_kepler.png') }}" 
+                                 alt="ROC Curve & Confusion Matrix - Kepler">
+                            <p class="viz-caption">ROC Curve & Confusion Matrix</p>
+                        </div>
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/Kepler_models/feature_importance_kepler.png') }}" 
+                                 alt="Feature Importance - Kepler">
+                            <p class="viz-caption">Feature Importance</p>
+                        </div>
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/Kepler_models/pred_viz_kepler.png') }}" 
+                                 alt="Prediction Visualization - Kepler">
+                            <p class="viz-caption">Prediction Visualization on 2 Most Important Features</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- K2 Dataset Section -->
+            <section id="k2" class="workflow-section dataset-section k2-section">
+                <h2 class="section-title">🌟 K2 Dataset Analysis</h2>
+                
+                <div class="content-card">
+                    <h3 class="subsection-title">Used Features</h3>
+                    <div class="code-block">
+                        <pre><code>Features: [
+    'disposition', 'sy_snum', 'pl_controv_flag', 'pl_orbper',
+    'pl_orbpererr1', 'pl_orbpererr2', 'pl_orbsmax', 'pl_orbsmaxerr1',
+    'pl_orbsmaxerr2', 'pl_rade', 'pl_radeerr1', 'pl_radeerr2', 'pl_radj',
+    'pl_radjerr1', 'pl_radjerr2', 'pl_bmasse', 'pl_bmasseerr1',
+    'pl_bmasseerr2', 'pl_bmassj', 'pl_bmassjerr1', 'pl_bmassjerr2',
+    'pl_bmassprov', 'pl_orbeccen', 'pl_orbeccenerr1', 'pl_orbeccenerr2',
+    'pl_insol', 'pl_insolerr1', 'pl_insolerr2', 'pl_eqt', 'pl_eqterr1',
+    'pl_eqterr2', 'ttv_flag', 'st_spectype', 'st_teff', 'st_tefferr1',
+    'st_tefferr2', 'st_rad', 'st_raderr1', 'st_raderr2', 'st_mass',
+    'st_masserr1', 'st_masserr2', 'st_met', 'st_meterr1', 'st_meterr2',
+    'st_metratio', 'st_logg', 'st_loggerr1', 'st_loggerr2', 'sy_dist',
+    'sy_disterr1', 'sy_disterr2', 'sy_vmag', 'sy_vmagerr1', 'sy_vmagerr2',
+    'sy_kmag', 'sy_kmagerr1', 'sy_kmagerr2', 'sy_gaiamag', 'sy_gaiamagerr1',
+    'sy_gaiamagerr2'
+]</code></pre>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>Target Variable</h4>
+                        <p><strong>disposition</strong> is the target variable.</p>
+                    </div>
+                    
+                    <div class="info-block highlight-block">
+                        <h4>Data Filtering Strategy</h4>
+                        <p>We removed the <strong>candidate rows</strong> since we don't know whether they are truly 
+                        confirmed exoplanets or false positives. The goal is to train a robust model that generalizes 
+                        well and can determine whether candidates are truly exoplanets.</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3 class="subsection-title">Categorical Encoding</h3>
+                    <div class="code-block">
+                        <pre><code>cat_cols_onehot = ["st_spectype", "st_metratio"]
+cat_cols_label = ["pl_bmassprov"]</code></pre>
+                    </div>
+                </div>
+
+                <div class="content-card results-card">
+                    <h3 class="subsection-title">Model Performance</h3>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">96.2%</div>
+                            <div class="metric-label">Accuracy</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">99.13%</div>
+                            <div class="metric-label">Precision</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">96.6%</div>
+                            <div class="metric-label">Recall</div>
+                        </div>
+                        <div class="metric-card highlight-metric">
+                            <div class="metric-value">97.8%</div>
+                            <div class="metric-label">F1-Score</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card visualizations-card">
+                    <h3 class="subsection-title">Visualizations</h3>
+                    <div class="visualization-grid">
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/K2_models/confusion_matrix.jpeg') }}" 
+                                 alt="Confusion Matrix - K2">
+                            <p class="viz-caption">Confusion Matrix</p>
+                        </div>
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/K2_models/feature_importance.jpeg') }}" 
+                                 alt="Feature Importance - K2">
+                            <p class="viz-caption">Feature Importance</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TESS Dataset Section -->
+            <section id="tess" class="workflow-section dataset-section tess-section">
+                <h2 class="section-title">🛰️ TESS Dataset Analysis</h2>
+                
+                <div class="content-card">
+                    <div class="info-block warning-block">
+                        <h3>Hardest Dataset to Work With</h3>
+                        <p>The TESS dataset presented unique challenges requiring advanced modeling techniques.</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3 class="subsection-title">Model Evolution</h3>
+                    
+                    <div class="model-progression">
+                        <div class="progression-step">
+                            <h4>Phase 1: Traditional ML Models</h4>
+                            <p>We tried various traditional ML models:</p>
+                            <ul>
+                                <li><strong>Logistic Regression:</strong> 77.7% accuracy</li>
+                                <li><strong>Decision Tree:</strong> 81.16% accuracy</li>
+                            </ul>
+                            <p class="note">Results were acceptable but not satisfactory.</p>
+                        </div>
+
+                        <div class="progression-step">
+                            <h4>Phase 2: Autoencoder Architecture</h4>
+                            <p>We implemented an <strong>autoencoder</strong> with an extra dimension in the decoder 
+                            that relates to predicting the class.</p>
+                            
+                            <div class="info-block">
+                                <h5>Intuition</h5>
+                                <p>The model learns to encode the input vectors in a dense space, from which it extracts 
+                                features to reconstruct the vector and predict its class.</p>
+                            </div>
+                            
+                            <div class="result-highlight">
+                                <strong>Result:</strong> 86.5% accuracy
+                            </div>
+                            
+                            <p>This approach resulted in an embedding space where the two classes are somewhat distinguishable:</p>
+                            <div class="viz-item centered">
+                                <img src="{{ url_for('static', filename='images/TESS_models/Embedding space auto encoder.png') }}" 
+                                     alt="Embedding Space - Autoencoder">
+                                <p class="viz-caption">Embedding Space Visualization</p>
+                            </div>
+                        </div>
+
+                        <div class="progression-step final-step">
+                            <h4>Phase 3: 1D Convolutional Neural Network</h4>
+                            
+                            <div class="info-block">
+                                <h5>📚 Inspiration</h5>
+                                <p>Inspired by the paper: <strong>"Identifying Exoplanets with Deep Learning: A CNN and RNN 
+                                Classifier for Kepler DR25 and Candidate Vetting"</strong></p>
+                                <p class="authors">Bibin Thomas, Vittal Bhat M, Salman Arafath Mohammed, Abdul Wase Mohammed, 
+                                Adis Abebaw Dessalegn, Mohit Mittal</p>
+                                <a href="https://arxiv.org/abs/2509.04793v1" target="_blank" class="paper-link">
+                                    📄 Read Paper on arXiv
+                                </a>
+                            </div>
+
+                            <div class="model-architecture">
+                                <h5>Model Architecture</h5>
+                                <p><strong>1D CNN Model</strong> created with <strong>460,929 parameters</strong></p>
+                                
+                                <div class="code-block architecture-block">
+                                    <pre><code>Conv1DClassifier(
+  (conv_layers): Sequential(
+    (0): Conv1d(1, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+    (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): LeakyReLU(negative_slope=0.01)
+    (3): Dropout(p=0.2, inplace=False)
+    (4): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+    (5): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (6): LeakyReLU(negative_slope=0.01)
+    (7): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (8): Dropout(p=0.2, inplace=False)
+    (9): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+    (10): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): LeakyReLU(negative_slope=0.01)
+    (12): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (13): Dropout(p=0.2, inplace=False)
+  )
+  (fc_layers): Sequential(
+    (0): Linear(in_features=2560, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): LeakyReLU(negative_slope=0.01)
+    (3): Dropout(p=0.2, inplace=False)
+    (4): Linear(in_features=128, out_features=64, bias=True)
+    (5): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (6): LeakyReLU(negative_slope=0.01)
+    (7): Dropout(p=0.2, inplace=False)
+    (8): Linear(in_features=64, out_features=1, bias=True)
+    (9): Sigmoid()
+  )
+)</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="result-highlight best-result">
+                                <strong>Best Result:</strong> 88.5% accuracy
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card visualizations-card">
+                    <h3 class="subsection-title">📈 Performance Visualizations</h3>
+                    <div class="visualization-grid">
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/TESS_models/CNN confusion matrix.png') }}" 
+                                 alt="CNN Confusion Matrix - TESS">
+                            <p class="viz-caption">CNN Confusion Matrix</p>
+                        </div>
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/TESS_models/model comparaison tess.png') }}" 
+                                 alt="Model Comparison - TESS">
+                            <p class="viz-caption">Models Comparison</p>
+                        </div>
+                        <div class="viz-item">
+                            <img src="{{ url_for('static', filename='images/TESS_models/Models performance heatmap.png') }}" 
+                                 alt="Models Performance Heatmap - TESS">
+                            <p class="viz-caption">Models Performance Heatmap</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conclusion Section -->
+            <section id="conclusion" class="workflow-section conclusion-section">
+                <h2 class="section-title">🎓 Conclusion</h2>
+                <div class="content-card conclusion-card">
+                    <p class="workflow-text">
+                        Our comprehensive approach to exoplanet detection demonstrates the power of combining 
+                        <strong>rigorous feature engineering</strong>, <strong>advanced preprocessing pipelines</strong>, 
+                        and <strong>state-of-the-art deep learning architectures</strong>.
+                    </p>
+                    <p class="workflow-text">
+                        Each dataset presented unique challenges, requiring tailored solutions:
+                    </p>
+                    <ul class="conclusion-list">
+                        <li><strong>Kepler:</strong> Exceptional performance (98.42% accuracy) with optimized Logistic Regression</li>
+                        <li><strong>K2:</strong> High precision (99.13%) through careful candidate filtering</li>
+                        <li><strong>TESS:</strong> Progressive improvement from 77.7% to 88.5% using advanced neural architectures</li>
+                    </ul>
+                    <p class="workflow-text final-message">
+                        These models are now deployed as production-ready APIs on Google Cloud Run, enabling 
+                        real-time exoplanet classification for the scientific community! 🚀
+                    </p>
+                </div>
+            </section>
+
+            <!-- GitHub Links Section -->
+            <section id="github" class="workflow-section github-section">
+                <h2 class="section-title">💻 Explore the Code</h2>
+                <div class="github-links-grid">
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" class="github-card">
+                        <div class="github-icon-large">🌐</div>
+                        <h3>Web Application</h3>
+                        <p>Flask-based web interface for exoplanet detection</p>
+                        <span class="github-link-text">View on GitHub →</span>
+                    </a>
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" class="github-card">
+                        <div class="github-icon-large">🤖</div>
+                        <h3>Models API</h3>
+                        <p>Machine learning models and prediction endpoints</p>
+                        <span class="github-link-text">View on GitHub →</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Make Pluto Great Again. Exoplanet Detection by AI.</p>
+        </div>
+    </footer>
+    </div>
+    <!-- End content-wrapper -->
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <script>
+        // Smooth scroll for sommaire links
+        document.querySelectorAll('.sommaire-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Image enlargement functionality
+        function enlargeImage(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const caption = document.getElementById('modalCaption');
+            
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            caption.textContent = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+
+        // Make all viz images clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.viz-item img, .workflow-diagram').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.onclick = function() { enlargeImage(this); };
+            });
+        });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
