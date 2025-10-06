@@ -16,24 +16,24 @@
     <div class="content-wrapper">
         <header class="header">
             <nav class="container">
-                <div class="logo">
-                    <div class="logo-icon">🚀</div>
+                <a class="logo" href="/" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                    <img src="/static/images/icon.svg" alt="MPGA Logo" style="height:2.2rem; width:auto; display:block; object-fit:contain;" />
                     <div class="logo-text">
                         <h3>MPGA</h3>
                         <p>Make Pluto Great Again</p>
                     </div>
-                </div>
+                </a>
                 <div class="nav-links">
                     <a href="/">Home</a>
                     <a href="/#prediction">AI Prediction</a>
                     <a href="/workflow">Workflow</a>
                     <a href="/kepler">Kepler</a>
                     <a href="/k2">K2</a>
-                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App">
-                        <span>🌐</span> Webapp
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Webapp
                     </a>
-                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API">
-                        <span>🤖</span> Models
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Models
                     </a>
                 </div>
             </nav>
@@ -42,113 +42,57 @@
         <section class="dataset-page">
             <div class="container">
                 <div class="dataset-hero tess-theme">
-                    <h1>🌍 TESS Mission</h1>
-                    <p class="dataset-tagline">The next-generation exoplanet hunter</p>
+                    <h1><span class="icon" aria-hidden="true"><img src="/static/images/icon.svg" alt="TESS Icon" style="height:1.2em;vertical-align:middle;"></span> TESS Mission</h1>
+                    <p class="dataset-tagline">Surveying the sky for new worlds</p>
                     <div class="dataset-meta">
-                        <span class="meta-item">📅 2018 - Present</span>
-                        <span class="meta-item">🌟 5,000+ identified candidates</span>
-                        <span class="meta-item">🎯 85% of sky covered</span>
+                        <span class="meta-item"><strong>Mission Duration:</strong> 2018–present</span>
+                        <span class="meta-item"><strong>Planet Candidates:</strong> 5,000+</span>
+                        <span class="meta-item"><strong>Sky Coverage:</strong> 85%</span>
                     </div>
                 </div>
 
                 <div class="dataset-content">
                     <div class="content-section">
-                        <h2>📖 About the Mission</h2>
+                        <h2>About the TESS Mission</h2>
                         <p>
-                            The Transiting Exoplanet Survey Satellite (TESS), launched in April 2018, represents the new 
-                            generation of exoplanet hunters. Unlike Kepler which observed a fixed region, 
-                            TESS scans almost the entire sky, monitoring the brightest and closest stars 
-                            to Earth.
+                            NASA’s Transiting Exoplanet Survey Satellite (TESS) was launched in 2018 to search for planets around the brightest and nearest stars. Unlike Kepler, which stared at a single patch of sky, TESS surveys nearly the entire sky using four wide-field cameras. Each sector is observed for about 27 days, enabling the detection of short-period planets.
                         </p>
                         <p>
-                            With its four wide-field cameras, TESS observes sky sections for 27 days, 
-                            allowing detection of planet transits around stars we can study 
-                            in detail with ground-based and space telescopes. The mission continues to be active and 
-                            makes new discoveries daily.
+                            TESS’s discoveries are ideal for follow-up with ground-based telescopes and the James Webb Space Telescope. The mission is ongoing and continues to deliver new planet candidates and discoveries.
                         </p>
                     </div>
 
                     <div class="content-section">
-                        <h2>🤖 Our AI Model for TESS</h2>
-                        <div class="model-info">
-                            <div class="model-card">
-                                <h3>Architecture</h3>
-                                <p>1D CNN (Convolutional Neural Network) optimized for TESS characteristics</p>
-                            </div>
-                            <div class="model-card">
-                                <h3>Training</h3>
-                                <p>40,000+ TESS light curves with data augmentation</p>
-                            </div>
-                            <div class="model-card">
-                                <h3>Performance</h3>
-                                <p>Accuracy of 88.5% with rapid detection of new candidates</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>📊 Data Format</h2>
-                        <p>To use our model with TESS data, your CSV file must contain:</p>
-                        <ul class="data-requirements">
-                            <li>Light flux columns (PDCSAP or SAP flux)</li>
-                            <li>Time series data with 2-minute or 20-second cadence</li>
-                            <li>Minimum 200 data points recommended</li>
-                            <li>The model handles data gaps between sectors</li>
-                        </ul>
-                        <div class="code-example">
-                            <h4>CSV structure example:</h4>
-                            <pre>FLUX_1,FLUX_2,FLUX_3,...,FLUX_N
-0.9999,1.0001,0.9998,...,1.0002
-1.0001,0.9997,1.0003,...,0.9999</pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🌟 Notable Discoveries</h2>
-                        <div class="discoveries-grid">
-                            <div class="discovery-card">
-                                <h4>TOI 700 d</h4>
-                                <p>First Earth-sized planet in the habitable zone discovered by TESS</p>
-                            </div>
-                            <div class="discovery-card">
-                                <h4>LTT 1445 Ab</h4>
-                                <p>Close and bright exoplanet, ideal target for JWST</p>
-                            </div>
-                            <div class="discovery-card">
-                                <h4>TOI 1338 b</h4>
-                                <p>First circumbinary planet (orbiting two stars) from TESS</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🔬 TESS Advantages</h2>
+                        <h2>About the TESS Dataset</h2>
                         <p>
-                            The TESS mission offers several unique advantages for exoplanet research:
+                            The TESS dataset provides detailed information for thousands of planet candidates, including properties of the planet, host star, and detection. Example features include:
                         </p>
-                        <ul class="data-requirements">
-                            <li>Observation of brighter and closer stars</li>
-                            <li>Coverage of almost the entire sky</li>
-                            <li>Optimal targets for follow-up observations</li>
-                            <li>Public data accessible in near real-time</li>
-                            <li>Synergy with ground-based telescopes and JWST</li>
-                        </ul>
+                                                <ul class="data-requirements" style="font-size: 1.15em;">
+                                                        <li><strong>toi</strong>: TESS Object of Interest number</li>
+                                                        <li><strong>tid</strong>: TESS Input Catalog ID</li>
+                                                        <li><strong>tfopwg_disp</strong>: Disposition (e.g., Candidate, Confirmed)</li>
+                                                        <li><strong>pl_orbper</strong>: Orbital period (days)</li>
+                                                        <li><strong>pl_rade</strong>: Planet radius (Earth radii)</li>
+                                                        <li><strong>pl_trandep</strong>: Transit depth (ppm)</li>
+                                                        <li><strong>st_teff</strong>: Stellar effective temperature (K)</li>
+                                                        <li>...</li>
+                                                </ul>
+                                                <p style="font-size: 1.08em; margin-top: 0.5em;">
+                                                    See the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_TOI_columns.html" target="_blank" style="color: var(--accent-secondary); text-decoration: underline; font-weight: 500; transition: color 0.2s;">full TESS feature list</a> for more details.
+                                                </p>
                     </div>
 
                     <div class="content-section">
-                        <h2>🎯 The Future with TESS</h2>
-                        <p>
-                            TESS continues its extended mission, observing certain sky regions again to 
-                            detect longer-period planets. TESS data also feeds 
-                            preparation of observations with the James Webb Space Telescope and future 
-                            extremely large ground-based telescopes.
+                        <h2>Scientific Impact</h2>
+                        <p style="font-size: 1.13em;">
+                            TESS has identified thousands of planet candidates, including Earth-size and potentially habitable worlds. Notable discoveries include TOI 700 d (an Earth-size planet in the habitable zone), LTT 1445 Ab, and TOI 1338 b (a circumbinary planet). TESS’s all-sky survey is helping to build the next generation of exoplanet science.
                         </p>
                     </div>
 
                     <div class="cta-section">
-                        <h2>Ready to analyze your TESS data?</h2>
+                        <h2>Analyze Your TESS Data</h2>
                         <a href="/#prediction" class="btn btn-primary btn-large">
-                            🚀 Start Analysis
+                            <span class="icon" aria-hidden="true">&#128640;</span> Start Analysis
                         </a>
                     </div>
                 </div>

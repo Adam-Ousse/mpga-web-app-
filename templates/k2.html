@@ -16,24 +16,24 @@
     <div class="content-wrapper">
         <header class="header">
             <nav class="container">
-                <div class="logo">
-                    <div class="logo-icon">🚀</div>
+                <a class="logo" href="/" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                    <img src="/static/images/icon.svg" alt="MPGA Logo" style="height:2.2rem; width:auto; display:block; object-fit:contain;" />
                     <div class="logo-text">
                         <h3>MPGA</h3>
                         <p>Make Pluto Great Again</p>
                     </div>
-                </div>
+                </a>
                 <div class="nav-links">
                     <a href="/">Home</a>
                     <a href="/#prediction">AI Prediction</a>
                     <a href="/workflow">Workflow</a>
                     <a href="/kepler">Kepler</a>
                     <a href="/tess">TESS</a>
-                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App">
-                        <span>🌐</span> Webapp
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Webapp
                     </a>
-                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API">
-                        <span>🤖</span> Models
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Models
                     </a>
                 </div>
             </nav>
@@ -42,102 +42,57 @@
         <section class="dataset-page">
             <div class="container">
                 <div class="dataset-hero k2-theme">
-                    <h1>🛰️ K2 Mission</h1>
-                    <p class="dataset-tagline">Kepler's innovative second life</p>
+                    <h1><span class="icon" aria-hidden="true"><img src="/static/images/icon.svg" alt="K2 Icon" style="height:1.2em;vertical-align:middle;"></span> K2 Mission</h1>
+                    <p class="dataset-tagline">Kepler’s extended mission: new fields, new discoveries</p>
                     <div class="dataset-meta">
-                        <span class="meta-item">📅 2014 - 2018</span>
-                        <span class="meta-item">🌟 500+ discovered exoplanets</span>
-                        <span class="meta-item">🎯 19 observation campaigns</span>
+                        <span class="meta-item"><strong>Mission Duration:</strong> 2014–2018</span>
+                        <span class="meta-item"><strong>Confirmed Exoplanets:</strong> 500+</span>
+                        <span class="meta-item"><strong>Observation Campaigns:</strong> 19</span>
                     </div>
                 </div>
 
                 <div class="dataset-content">
                     <div class="content-section">
-                        <h2>📖 About the Mission</h2>
+                        <h2>About the K2 Mission</h2>
                         <p>
-                            After a mechanical failure in 2013, the Kepler mission was reinvented as the K2 mission. 
-                            Rather than observing a single region of the sky, K2 used solar radiation pressure 
-                            to stabilize the telescope, allowing observations of different sky regions 
-                            during 80-day campaigns.
+                            After the failure of two reaction wheels, the Kepler spacecraft was repurposed as the K2 mission in 2014. K2 observed different regions of the sky in a series of campaigns, using solar pressure to help stabilize its pointing. This allowed astronomers to study a wider variety of stars and planetary systems, including young stars, star clusters, and even supernovae.
                         </p>
                         <p>
-                            This innovative approach allowed observation of a greater variety of stars and planetary 
-                            systems, while continuing to use the photometric transit method that made 
-                            Kepler successful.
+                            K2 continued the search for exoplanets using the transit method, and its flexible observing strategy led to the discovery of hundreds of new worlds.
                         </p>
                     </div>
 
                     <div class="content-section">
-                        <h2>🤖 Our AI Model for K2</h2>
-                        <div class="model-info">
-                            <div class="model-card">
-                                <h3>Architecture</h3>
-                                <p>Random Forest adapted for K2's characteristic pointing variations</p>
-                            </div>
-                            <div class="model-card">
-                                <h3>Training</h3>
-                                <p>30,000+ K2 light curves with specialized preprocessing</p>
-                            </div>
-                            <div class="model-card">
-                                <h3>Performance</h3>
-                                <p>Accuracy of 96.2% with robustness to K2 instrumental artifacts</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>📊 Data Format</h2>
-                        <p>To use our model with K2 data, your CSV file must contain:</p>
-                        <ul class="data-requirements">
-                            <li>Light flux columns (normalized and corrected flux)</li>
-                            <li>Data with characteristic K2 instrumental noise</li>
-                            <li>Minimum 200 data points recommended</li>
-                            <li>The model automatically handles campaign discontinuities</li>
-                        </ul>
-                        <div class="code-example">
-                            <h4>CSV structure example:</h4>
-                            <pre>FLUX_1,FLUX_2,FLUX_3,...,FLUX_N
-1.0002,0.9998,1.0001,...,0.9997
-0.9999,1.0003,0.9995,...,1.0002</pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🌟 Notable Discoveries</h2>
-                        <div class="discoveries-grid">
-                            <div class="discovery-card">
-                                <h4>K2-18b</h4>
-                                <p>Super-Earth in the habitable zone with water vapor detected in its atmosphere</p>
-                            </div>
-                            <div class="discovery-card">
-                                <h4>K2-138</h4>
-                                <p>System of 6 planets in orbital resonance discovered by citizen scientists</p>
-                            </div>
-                            <div class="discovery-card">
-                                <h4>K2-22b</h4>
-                                <p>Planet with a debris tail, like a giant comet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🔬 K2 Specifics</h2>
+                        <h2>About the K2 Dataset</h2>
                         <p>
-                            The K2 mission introduced unique challenges due to solar pressure stabilization. 
-                            Our AI model has been specifically trained to:
+                            The K2 dataset includes detailed parameters for each planet candidate and host star. The data covers a wide range of stellar and planetary properties. Example features include:
                         </p>
-                        <ul class="data-requirements">
-                            <li>Handle systematic pointing variations every 6 hours</li>
-                            <li>Distinguish planetary transits from instrumental noise</li>
-                            <li>Adapt to different data qualities between campaigns</li>
-                            <li>Compensate for thruster roll effects</li>
-                        </ul>
+                                                <ul class="data-requirements" style="font-size: 1.15em;">
+                                                        <li><strong>pl_name</strong>: Planet name</li>
+                                                        <li><strong>hostname</strong>: Host star name</li>
+                                                        <li><strong>discoverymethod</strong>: Method of discovery</li>
+                                                        <li><strong>pl_orbper</strong>: Orbital period (days)</li>
+                                                        <li><strong>pl_rade</strong>: Planet radius (Earth radii)</li>
+                                                        <li><strong>pl_bmasse</strong>: Planet mass (Earth masses)</li>
+                                                        <li><strong>st_teff</strong>: Stellar effective temperature (K)</li>
+                                                        <li>...</li>
+                                                </ul>
+                                                <p style="font-size: 1.08em; margin-top: 0.5em;">
+                                                    See the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_k2pandc_columns.html" target="_blank" style="color: var(--accent-secondary); text-decoration: underline; font-weight: 500; transition: color 0.2s;">full K2 feature list</a> for more details.
+                                                </p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Scientific Impact</h2>
+                        <p style="font-size: 1.13em;">
+                            K2 expanded the legacy of Kepler by exploring new regions of the sky and enabling discoveries in diverse stellar environments. Notable finds include K2-18b (a super-Earth in the habitable zone), K2-138 (a system of six planets in resonance), and K2-22b (a planet with a comet-like tail). The mission’s data continues to support research in exoplanet science and stellar astrophysics.
+                        </p>
                     </div>
 
                     <div class="cta-section">
-                        <h2>Ready to analyze your K2 data?</h2>
+                        <h2>Analyze Your K2 Data</h2>
                         <a href="/#prediction" class="btn btn-primary btn-large">
-                            🚀 Start Analysis
+                            <span class="icon" aria-hidden="true">&#128640;</span> Start Analysis
                         </a>
                     </div>
                 </div>

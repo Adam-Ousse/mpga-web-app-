@@ -107,23 +107,23 @@
         <!-- Header -->
         <header class="header">
             <nav class="container">
-                <div class="logo">
-                    <div class="logo-icon">🚀</div>
+                <a class="logo" href="/" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                    <img src="/static/images/icon.svg" alt="MPGA Logo" style="height:2.2rem; width:auto; display:block; object-fit:contain;" />
                     <div class="logo-text">
                         <h3>MPGA</h3>
                         <p>Make Pluto Great Again</p>
                     </div>
-                </div>
+                </a>
                 <div class="nav-links">
                     <a href="#about" style="font-weight: 700;">About</a>
                     <a href="#prediction" style="font-weight: 700;">AI Prediction</a>
                     <a href="/workflow" style="font-weight: 700;">Workflow</a>
                     <a href="#datasets" style="font-weight: 700;">Datasets</a>
-                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App" style="font-weight: 700;">
-                        <span>🌐</span> GitHub Webapp
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Webapp
                     </a>
-                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API" style="font-weight: 700;">
-                        <span>🤖</span> GitHub Models
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Models
                     </a>
                 </div>
             </nav>
@@ -135,16 +135,16 @@
                 <div class="hero-content">
                     <div class="hero-left">
                         <div class="badge">
-                            <span class="zap-icon">⚡</span>
-                            <span>Open Source</span>
+                                    <span class="zap-icon">⚡</span>
+                                    <span>Open Source</span>
                         </div>
                         <h1 class="hero-title">
-                            Make Pluto<br>
-                            Great Again
+                                    Make Pluto<br>
+                                    Great Again
                         </h1>
                         <p class="hero-description">
-                            Discover exoplanets with our state-of-the-art AI model. 
-                            Analyze Kepler, K2 and TESS data to detect new worlds.
+                                    Find exoplanets using our advanced model. 
+                                    Analyze Kepler, K2, and TESS data to search for new worlds.
                         </p>
                         <div class="hero-buttons">
                             <button class="btn btn-primary" onclick="scrollToSection('prediction')">
@@ -182,8 +182,14 @@
                 <div class="section-header">
                     <h2 class="section-title">About the Project</h2>
                     <p class="section-description">
-                        MPGA uses artificial intelligence to democratize exoplanet discovery
+                        MPGA uses artificial intelligence to democratize exoplanet discovery.<br>
+                        <a href="https://www.spaceappschallenge.org/2025/challenges/a-world-away-hunting-for-exoplanets-with-ai/" target="_blank" style="color: var(--primary-color); text-decoration: underline; font-weight: 500;">
+                            See the NASA Space Apps Challenge: "A World Away: Hunting for Exoplanets with AI"
+                        </a>
                     </p>
+                    <div style="margin-top: 0.7em; color: rgba(255,255,255,0.85); font-size: 1.05em;">
+                        <strong>Challenge summary:</strong> Data from several space-based exoplanet missions have enabled discovery of thousands of new planets, but most were identified manually. With advances in AI/ML, it's now possible to automatically analyze these large datasets to find exoplanets. The challenge: create an AI/ML model trained on NASA's open-source exoplanet datasets to accurately identify new exoplanets.
+                    </div>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
@@ -204,6 +210,7 @@
                 </div>
                 <div class="team-section">
                     <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary);">👥 Team Members</h3>
+                        <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--text-primary);">Team Members</h3>
                     <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
                         <a href="https://www.linkedin.com/in/adam-gassem/" target="_blank" class="team-member" style="text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; transition: all 0.3s ease; display: block; color: inherit;">
                             <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color); margin: 0;">Adam Gassam</p>
@@ -234,10 +241,10 @@
                     <!-- Workflow Button -->
                     <div style="text-align: center; margin-top: 3rem;">
                         <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">
-                            Want to dive deeper? Here's a comprehensive analysis of our workflow and methodology
+                           Want to know more? Check out our full workflow and methods.
                         </p>
                         <a href="/workflow" class="btn btn-primary btn-large" style="display: inline-block; text-decoration: none;">
-                            🔬 Explore Our Workflow
+                           See Our Workflow
                         </a>
                     </div>
                 </div>
@@ -363,8 +370,8 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <div class="logo">
-                            <div class="logo-icon">🚀</div>
+                        <div class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                            <img src="/static/images/icon.svg" alt="MPGA Logo" style="height:2.2rem; width:auto; display:block; object-fit:contain;" />
                             <div class="logo-text">
                                 <h3>MPGA</h3>
                                 <p>Make Pluto Great Again</p>
@@ -391,7 +398,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2024 MPGA Project. Created with ❤️ for the scientific community</p>
+                    <p>© 2025 MPGA Project. Created with ❤️ for the scientific community</p>
                 </div>
             </div>
         </footer>

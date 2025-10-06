@@ -16,24 +16,24 @@
     <div class="content-wrapper">
         <header class="header">
             <nav class="container">
-                <div class="logo">
-                    <div class="logo-icon">🚀</div>
+                <a class="logo" href="/" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                    <img src="/static/images/icon.svg" alt="MPGA Logo" style="height:2.2rem; width:auto; display:block; object-fit:contain;" />
                     <div class="logo-text">
                         <h3>MPGA</h3>
                         <p>Make Pluto Great Again</p>
                     </div>
-                </div>
+                </a>
                 <div class="nav-links">
                     <a href="/">Home</a>
                     <a href="/#prediction">AI Prediction</a>
                     <a href="/workflow">Workflow</a>
                     <a href="/k2">K2</a>
                     <a href="/tess">TESS</a>
-                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App">
-                        <span>🌐</span> Webapp
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Webapp
                     </a>
-                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API">
-                        <span>🤖</span> Models
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Models
                     </a>
                 </div>
             </nav>
@@ -42,87 +42,57 @@
         <section class="dataset-page">
             <div class="container">
                 <div class="dataset-hero kepler-theme">
-                    <h1>🔭 Kepler Mission</h1>
-                    <p class="dataset-tagline">The pioneering mission of exoplanet hunting</p>
+                    <h1><span class="icon" aria-hidden="true"><img src="/static/images/icon.svg" alt="Kepler Icon" style="height:1.2em;vertical-align:middle;"></span> Kepler Mission</h1>
+                    <p class="dataset-tagline">A landmark NASA mission for exoplanet discovery</p>
                     <div class="dataset-meta">
-                        <span class="meta-item">📅 2009 - 2018</span>
-                        <span class="meta-item">🌟 2,600+ confirmed exoplanets</span>
-                        <span class="meta-item">🎯 150,000 observed stars</span>
+                        <span class="meta-item"><strong>Mission Duration:</strong> 2009–2018</span>
+                        <span class="meta-item"><strong>Confirmed Exoplanets:</strong> 2,600+</span>
+                        <span class="meta-item"><strong>Stars Observed:</strong> 150,000+</span>
                     </div>
                 </div>
 
                 <div class="dataset-content">
                     <div class="content-section">
-                        <h2>📖 About the Mission</h2>
+                        <h2>About the Kepler Mission</h2>
                         <p>
-                            Launched in March 2009, the Kepler Space Telescope revolutionized our understanding of exoplanets. 
-                            For nearly a decade, it observed a fixed region of the sky, continuously monitoring 
-                            the brightness of over 150,000 stars.
+                            The Kepler Space Telescope was launched by NASA in 2009 to search for Earth-size planets orbiting other stars. By continuously monitoring the brightness of over 150,000 stars in a fixed patch of sky, Kepler revolutionized our understanding of planetary systems. Its primary method was the transit technique, detecting the tiny dips in starlight caused by planets passing in front of their host stars.
                         </p>
                         <p>
-                            The mission used the photometric transit method: when a planet passes in front of its star 
-                            (as seen from Earth), it causes a slight decrease in the star's brightness. 
-                            This is the signature that our AI model is trained to detect.
+                            Kepler’s discoveries have shown that planets are common in our galaxy, including many potentially habitable worlds. The mission ended in 2018 after nearly a decade of groundbreaking science.
                         </p>
                     </div>
 
                     <div class="content-section">
-                        <h2>🤖 Our AI Model for Kepler</h2>
-                        <div class="model-info">
-                            <div class="model-card">
-                                <h3>Architecture</h3>
-                                <p>Logistic Regression optimized for time series analysis</p>
-                            </div>
-                            <div class="model-card">
-                                <h3>Training</h3>
-                                <p>Over 50,000 labeled light curves from the Kepler mission</p>
-                            </div>
-                            <div class="model-card">
-                                <h3>Performance</h3>
-                                <p>Accuracy of 98.42% on test set with false positive rate < 2%</p>
-                            </div>
-                        </div>
+                        <h2>About the Kepler Dataset</h2>
+                        <p>
+                            The Kepler dataset contains detailed measurements for thousands of planet candidates and confirmed exoplanets. Each entry includes information about the planet, its host star, and the detection process. Here are some example features:
+                        </p>
+                                                <ul class="data-requirements" style="font-size: 1.15em;">
+                                                        <li><strong>kepid</strong>: Unique Kepler target ID</li>
+                                                        <li><strong>kepler_name</strong>: Official planet name</li>
+                                                        <li><strong>koi_disposition</strong>: Disposition (e.g., Candidate, Confirmed)</li>
+                                                        <li><strong>koi_period</strong>: Orbital period (days)</li>
+                                                        <li><strong>koi_prad</strong>: Planet radius (Earth radii)</li>
+                                                        <li><strong>koi_teq</strong>: Equilibrium temperature (K)</li>
+                                                        <li><strong>koi_srad</strong>: Stellar radius (Solar radii)</li>
+                                                        <li>...</li>
+                                                </ul>
+                                                <p style="font-size: 1.08em; margin-top: 0.5em;">
+                                                    See the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_kepcandidate_columns.html" target="_blank" style="color: var(--accent-secondary); text-decoration: underline; font-weight: 500; transition: color 0.2s;">full Kepler feature list</a> for more details.
+                                                </p>
                     </div>
 
                     <div class="content-section">
-                        <h2>📊 Data Format</h2>
-                        <p>To use our model with Kepler data, your CSV file must contain:</p>
-                        <ul class="data-requirements">
-                            <li>Light flux columns (normalized flux)</li>
-                            <li>Continuous time series data</li>
-                            <li>Minimum 200 data points recommended</li>
-                            <li>Numerical values (NaN accepted and will be cleaned automatically)</li>
-                        </ul>
-                        <div class="code-example">
-                            <h4>CSV structure example:</h4>
-                            <pre>FLUX_1,FLUX_2,FLUX_3,...,FLUX_N
-0.9998,1.0001,0.9997,...,1.0003
-0.9995,1.0002,0.9999,...,1.0001</pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🌟 Notable Discoveries</h2>
-                        <div class="discoveries-grid">
-                            <div class="discovery-card">
-                                <h4>Kepler-186f</h4>
-                                <p>First Earth-sized planet discovered in the habitable zone</p>
-                            </div>
-                            <div class="discovery-card">
-                                <h4>Kepler-452b</h4>
-                                <p>"Earth's cousin" - similar planet in the habitable zone</p>
-                            </div>
-                            <div class="discovery-card">
-                                <h4>TRAPPIST-1</h4>
-                                <p>System with 7 Earth-sized planets, 3 in the habitable zone</p>
-                            </div>
-                        </div>
+                        <h2>Scientific Impact</h2>
+                        <p style="font-size: 1.13em;">
+                            Kepler’s data has led to the discovery of thousands of exoplanets, including Earth-sized worlds in habitable zones. Notable discoveries include Kepler-186f (the first Earth-size planet in the habitable zone of another star), Kepler-452b, and the TRAPPIST-1 system. The mission’s legacy continues to shape our search for life beyond the Solar System.
+                        </p>
                     </div>
 
                     <div class="cta-section">
-                        <h2>Ready to analyze your Kepler data?</h2>
+                        <h2>Analyze Your Kepler Data</h2>
                         <a href="/#prediction" class="btn btn-primary btn-large">
-                            🚀 Start Analysis
+                            <span class="icon" aria-hidden="true">&#128640;</span> Start Analysis
                         </a>
                     </div>
                 </div>

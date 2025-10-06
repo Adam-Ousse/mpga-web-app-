@@ -19,22 +19,22 @@
         <!-- Header -->
         <header class="header">
             <nav class="container">
-                <div class="logo">
-                    <div class="logo-icon">🚀</div>
+                <a class="logo" href="/" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                    <img src="/static/images/icon.svg" alt="MPGA Logo" style="height:2.2rem; width:auto; display:block; object-fit:contain;" />
                     <div class="logo-text">
                         <h3>MPGA</h3>
                         <p>Make Pluto Great Again</p>
                     </div>
-                </div>
+                </a>
                 <div class="nav-links">
                     <a href="/">Home</a>
                     <a href="/#prediction">AI Prediction</a>
                     <a href="/workflow">Workflow</a>
-                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App">
-                        <span>🌐</span> GitHub Webapp
+                    <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" title="GitHub - Web App" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Webapp
                     </a>
-                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API">
-                        <span>🤖</span> GitHub Models
+                    <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" title="GitHub - Models API" style="display: flex; align-items: center; gap: 0.4em;">
+                        <img src="/static/images/github-mark-white.svg" alt="GitHub" style="height:1.1em; width:auto; vertical-align:middle; object-fit:contain;" /> Models
                     </a>
                 </div>
             </nav>
@@ -45,44 +45,36 @@
             <div class="container">
                 <!-- Page Header -->
                 <section class="page-header">
-                    <h1 class="page-title">🔬 Workflow Explanation</h1>
-                    <p class="page-subtitle">Discover our comprehensive methodology for exoplanet analysis and prediction</p>
+                    <h1 class="page-title">Workflow Explanation</h1>
+                    <p class="page-subtitle">How we approach exoplanet analysis and prediction, step by step</p>
                 </section>
 
             <!-- Table of Contents (Sommaire) -->
             <section class="sommaire-section">
-                <h2 class="sommaire-title">📑 Sommaire</h2>
+                <h2 class="sommaire-title">Summary</h2>
                 <div class="sommaire-grid">
                     <a href="#architecture" class="sommaire-link">
-                        <span class="sommaire-icon">📊</span>
                         <span class="sommaire-text">Project Architecture</span>
                     </a>
                     <a href="#overview" class="sommaire-link">
-                        <span class="sommaire-icon">🎯</span>
                         <span class="sommaire-text">Project Overview</span>
                     </a>
                     <a href="#preprocessing" class="sommaire-link">
-                        <span class="sommaire-icon">🔧</span>
                         <span class="sommaire-text">Feature Engineering</span>
                     </a>
                     <a href="#kepler" class="sommaire-link">
-                        <span class="sommaire-icon">🔭</span>
                         <span class="sommaire-text">Kepler Dataset</span>
                     </a>
                     <a href="#k2" class="sommaire-link">
-                        <span class="sommaire-icon">🌟</span>
                         <span class="sommaire-text">K2 Dataset</span>
                     </a>
                     <a href="#tess" class="sommaire-link">
-                        <span class="sommaire-icon">🛰️</span>
                         <span class="sommaire-text">TESS Dataset</span>
                     </a>
                     <a href="#conclusion" class="sommaire-link">
-                        <span class="sommaire-icon">🎓</span>
                         <span class="sommaire-text">Conclusion</span>
                     </a>
                     <a href="#github" class="sommaire-link">
-                        <span class="sommaire-icon">💻</span>
                         <span class="sommaire-text">GitHub Repositories</span>
                     </a>
                 </div>
@@ -90,7 +82,7 @@
 
             <!-- Project Diagram -->
             <section id="architecture" class="workflow-section diagram-section">
-                <h2 class="section-title">📊 Project Architecture</h2>
+                <h2 class="section-title">Project Architecture</h2>
                 <div class="diagram-container">
                     <img src="{{ url_for('static', filename='images/entire_system_diagram.png') }}" 
                          alt="MPGA Workflow Diagram" 
@@ -101,76 +93,70 @@
 
             <!-- Overview Section -->
             <section id="overview" class="workflow-section overview-section">
-                <h2 class="section-title">🎯 Project Overview</h2>
+                <h2 class="section-title">Project Overview</h2>
                 <div class="content-card">
                     <p class="workflow-text">
-                        The AI project follows a standard machine learning procedure. We begin with <strong>data collection</strong>, 
-                        utilizing the datasets provided in the challenge: <strong>Kepler</strong>, <strong>TESS</strong>, and <strong>K2</strong>. 
-                        Next, we proceed to <strong>analyzing all features</strong> based on their meaning, value intervals, and importance in prediction.
+                        Our project follows a classic machine learning workflow. We start by collecting data from the Kepler, TESS, and K2 missions. Then, we take a close look at all the features, thinking about what they mean, what values they take, and how useful they might be for making predictions.
                     </p>
                 </div>
             </section>
 
             <!-- Feature Engineering Section -->
             <section id="preprocessing" class="workflow-section feature-section">
-                <h2 class="section-title">🔧 Feature Engineering & Data Preprocessing</h2>
+                <h2 class="section-title">Feature Engineering & Data Preprocessing</h2>
                 
                 <div class="content-card">
                     <h3 class="subsection-title">Removed Features</h3>
                     <div class="feature-info">
                         <div class="info-block">
-                            <h4>❌ Limit Features</h4>
-                            <p>We removed all features connected to "limits" since these were highly sparse features, 
-                            either filled with zeros or null values.</p>
+                            <h4>Limit Features</h4>
+                            <p>We took out all features related to "limits" because they were mostly empty or filled with zeros, so they didn't add any value.</p>
                         </div>
                         
                         <div class="info-block">
-                            <h4>❌ Irrelevant Features</h4>
-                            <p>We removed features that were either irrelevant to exoplanet prediction (such as IDs and 
-                            discovery timestamps) or features that made the task unrealistically easy.</p>
+                            <h4>Irrelevant Features</h4>
+                            <p>We also removed features that didn't help with exoplanet prediction, like IDs or discovery dates, and anything that would make the task too easy or unrealistic.</p>
                         </div>
                         
                         <div class="info-block highlight-block">
-                            <h4>⚠️ Example: "sy_pnum" in K2</h4>
-                            <p>This feature represents the "number of identified planets" in the star's orbit. We consider 
-                            it illogical to use as a prediction base since, for a new solar system, this data would not be 
-                            known — which is precisely what NASA's system aims to predict.</p>
+                            <h4>Example: "sy_pnum" in K2</h4>
+                            <p>This feature tells you how many planets have already been found around a star. It doesn't make sense to use it for prediction, because for a new system, we wouldn't know this number in advance. That's exactly what we're trying to figure out!</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="content-card preprocessing-card">
-                    <h3 class="subsection-title">⚙️ Preprocessing Pipeline</h3>
+                    <h3 class="subsection-title">Preprocessing Pipeline</h3>
                     <p class="workflow-text">
-                        We created a <strong>scikit-learn pipeline</strong> that processes the dataset through the following steps:
+                        We built a <strong>scikit-learn pipeline</strong> to process the data. Here’s what it does:
                     </p>
                     <div class="pipeline-steps">
                         <div class="pipeline-step">
                             <span class="step-number">1</span>
                             <div class="step-content">
                                 <h4>Columns Filtering</h4>
-                                <p>Remove irrelevant and target-leaking features</p>
+                                <p>We remove columns that don't help or that would give away the answer.</p>
                             </div>
                         </div>
                         <div class="pipeline-step">
                             <span class="step-number">2</span>
                             <div class="step-content">
                                 <h4>Filling Missing Values</h4>
-                                <p>Impute missing data using appropriate strategies</p>
+                                <p>We fill in missing data using the best method for each column.</p>
                             </div>
                         </div>
                         <div class="pipeline-step">
                             <span class="step-number">3</span>
                             <div class="step-content">
                                 <h4>Encoding Categorical Variables</h4>
-                                <p>Transform categorical features into numerical representations</p>
+                                <p>We turn text columns into numbers so the model can use them.</p>
                             </div>
                         </div>
                         <div class="pipeline-step">
                             <span class="step-number">4</span>
                             <div class="step-content">
                                 <h4>Standard Scaling Numerical Variables</h4>
-                                <p>Normalize numerical features for optimal model performance</p>
+                                <p>We scale the numbers so they're all on a similar range, which helps the model learn.</p>
                             </div>
                         </div>
                     </div>
@@ -179,7 +165,7 @@
 
             <!-- Kepler Dataset Section -->
             <section id="kepler" class="workflow-section dataset-section kepler-section">
-                <h2 class="section-title">🔭 Kepler Dataset Analysis</h2>
+                <h2 class="section-title">Kepler Dataset Analysis</h2>
                 
                 <div class="content-card">
                     <h3 class="subsection-title">Dropped Columns</h3>
@@ -197,10 +183,9 @@
                 </div>
 
                 <div class="content-card results-card">
-                    <h3 class="subsection-title">🎯 Model Performance</h3>
+                    <h3 class="subsection-title">Model Performance</h3>
                     <p class="workflow-text">
-                        The results are <strong>astonishing</strong> with <strong>Logistic Regression</strong>, which was trained 
-                        using <strong>5-fold cross-validation</strong> and <strong>hyperparameter fine-tuning</strong>:
+                        We trained a Logistic Regression model using 5-fold cross-validation and tuned the parameters for best results. Here’s how it performed:
                     </p>
                     
                     <div class="metrics-grid">
@@ -251,7 +236,7 @@
 
             <!-- K2 Dataset Section -->
             <section id="k2" class="workflow-section dataset-section k2-section">
-                <h2 class="section-title">🌟 K2 Dataset Analysis</h2>
+                <h2 class="section-title">K2 Dataset Analysis</h2>
                 
                 <div class="content-card">
                     <h3 class="subsection-title">Used Features</h3>
@@ -281,9 +266,7 @@
                     
                     <div class="info-block highlight-block">
                         <h4>Data Filtering Strategy</h4>
-                        <p>We removed the <strong>candidate rows</strong> since we don't know whether they are truly 
-                        confirmed exoplanets or false positives. The goal is to train a robust model that generalizes 
-                        well and can determine whether candidates are truly exoplanets.</p>
+                        <p>We left out the candidate rows, since we can't be sure if they're real exoplanets or not. Our goal is to train a model that can tell the difference reliably.</p>
                     </div>
                 </div>
 
@@ -337,12 +320,12 @@ cat_cols_label = ["pl_bmassprov"]</code></pre>
 
             <!-- TESS Dataset Section -->
             <section id="tess" class="workflow-section dataset-section tess-section">
-                <h2 class="section-title">🛰️ TESS Dataset Analysis</h2>
+                <h2 class="section-title">TESS Dataset Analysis</h2>
                 
                 <div class="content-card">
                     <div class="info-block warning-block">
-                        <h3>Hardest Dataset to Work With</h3>
-                        <p>The TESS dataset presented unique challenges requiring advanced modeling techniques.</p>
+                        <h3>Most Challenging Dataset</h3>
+                        <p>The TESS dataset was the toughest to work with and needed more advanced modeling.</p>
                     </div>
                 </div>
 
@@ -352,30 +335,25 @@ cat_cols_label = ["pl_bmassprov"]</code></pre>
                     <div class="model-progression">
                         <div class="progression-step">
                             <h4>Phase 1: Traditional ML Models</h4>
-                            <p>We tried various traditional ML models:</p>
+                            <p>We started with some classic machine learning models:</p>
                             <ul>
                                 <li><strong>Logistic Regression:</strong> 77.7% accuracy</li>
                                 <li><strong>Decision Tree:</strong> 81.16% accuracy</li>
                             </ul>
-                            <p class="note">Results were acceptable but not satisfactory.</p>
+                            <p class="note">These results were okay, but we wanted to do better.</p>
                         </div>
 
                         <div class="progression-step">
                             <h4>Phase 2: Autoencoder Architecture</h4>
-                            <p>We implemented an <strong>autoencoder</strong> with an extra dimension in the decoder 
-                            that relates to predicting the class.</p>
-                            
+                            <p>Next, we tried an autoencoder with an extra output for the class prediction.</p>
                             <div class="info-block">
-                                <h5>Intuition</h5>
-                                <p>The model learns to encode the input vectors in a dense space, from which it extracts 
-                                features to reconstruct the vector and predict its class.</p>
+                                <h5>How it works</h5>
+                                <p>The model learns to compress the data into a smaller space, then reconstruct it and predict the class at the same time.</p>
                             </div>
-                            
                             <div class="result-highlight">
                                 <strong>Result:</strong> 86.5% accuracy
                             </div>
-                            
-                            <p>This approach resulted in an embedding space where the two classes are somewhat distinguishable:</p>
+                            <p>This method gave us an embedding space where the two classes could be separated to some extent:</p>
                             <div class="viz-item centered">
                                 <img src="{{ url_for('static', filename='images/TESS_models/Embedding space auto encoder.png') }}" 
                                      alt="Embedding Space - Autoencoder">
@@ -466,40 +444,37 @@ cat_cols_label = ["pl_bmassprov"]</code></pre>
 
             <!-- Conclusion Section -->
             <section id="conclusion" class="workflow-section conclusion-section">
-                <h2 class="section-title">🎓 Conclusion</h2>
+                <h2 class="section-title">Conclusion</h2>
                 <div class="content-card conclusion-card">
                     <p class="workflow-text">
-                        Our comprehensive approach to exoplanet detection demonstrates the power of combining 
-                        <strong>rigorous feature engineering</strong>, <strong>advanced preprocessing pipelines</strong>, 
-                        and <strong>state-of-the-art deep learning architectures</strong>.
+                        Our approach to exoplanet detection is based on careful feature engineering, solid data processing, and trying out different machine learning models until we found what worked best.
                     </p>
                     <p class="workflow-text">
-                        Each dataset presented unique challenges, requiring tailored solutions:
+                        Each dataset had its own challenges, so we had to adapt our methods for each one:
                     </p>
                     <ul class="conclusion-list">
-                        <li><strong>Kepler:</strong> Exceptional performance (98.42% accuracy) with optimized Logistic Regression</li>
-                        <li><strong>K2:</strong> High precision (99.13%) through careful candidate filtering</li>
-                        <li><strong>TESS:</strong> Progressive improvement from 77.7% to 88.5% using advanced neural architectures</li>
+                        <li><strong>Kepler:</strong> 98.42% accuracy with a tuned Logistic Regression model</li>
+                        <li><strong>K2:</strong> 99.13% precision by filtering out uncertain candidates</li>
+                        <li><strong>TESS:</strong> Improved from 77.7% to 88.5% by moving to more complex neural networks</li>
                     </ul>
                     <p class="workflow-text final-message">
-                        These models are now deployed as production-ready APIs on Google Cloud Run, enabling 
-                        real-time exoplanet classification for the scientific community! 🚀
+                        These models are now running as APIs on Google Cloud Run, so anyone can use them for real-time exoplanet classification.
                     </p>
                 </div>
             </section>
 
             <!-- GitHub Links Section -->
             <section id="github" class="workflow-section github-section">
-                <h2 class="section-title">💻 Explore the Code</h2>
+                <h2 class="section-title">Explore the Code</h2>
                 <div class="github-links-grid">
                     <a href="https://github.com/Adam-Ousse/mpga-web-app-" target="_blank" class="github-card">
-                        <div class="github-icon-large">🌐</div>
+                        <div class="github-icon-large">Web</div>
                         <h3>Web Application</h3>
                         <p>Flask-based web interface for exoplanet detection</p>
                         <span class="github-link-text">View on GitHub →</span>
                     </a>
                     <a href="https://github.com/Adam-Ousse/flask_models_planet_detector" target="_blank" class="github-card">
-                        <div class="github-icon-large">🤖</div>
+                        <div class="github-icon-large">API</div>
                         <h3>Models API</h3>
                         <p>Machine learning models and prediction endpoints</p>
                         <span class="github-link-text">View on GitHub →</span>
@@ -512,7 +487,7 @@ cat_cols_label = ["pl_bmassprov"]</code></pre>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Make Pluto Great Again. Exoplanet Detection by AI.</p>
+            <p>&copy; 2025 Make Pluto Great Again. Exoplanet Detection by AI.</p>
         </div>
     </footer>
     </div>
